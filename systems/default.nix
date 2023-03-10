@@ -1,6 +1,6 @@
 inputs @ {nixpkgs, ...} : {
 	nixos = nixpkgs.lib.nixosSystem{
-		system = "x86-64_linux";
+		system = "x86_64-linux";
 		modules = [
 			./nixos
 		];
