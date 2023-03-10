@@ -17,7 +17,7 @@
 		};
 	};
 	outputs = inputs @ {self, nixpkgs, unstable, home-manager, nix-ld} : {
-		nixosConfiguration = (
+		nixosConfigurations = (
 			import ./systems {
 				inherit inputs;
 			}
