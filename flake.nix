@@ -11,14 +11,13 @@
 			url = "github:nix-community/home-manager/release-22.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
-		nix-ld = {
-			url = "github:Mic92/nix-ld";
-			follows = "unstable";
-		};
 	};
-	outputs = inputs @ {self, nixpkgs, unstable, home-manager, nix-ld} : {
-		nixosConfigurations = (
-			import ./systems inputs
-		);
+	outputs =   {self, nixpkgs, unstable, home-manager} @ inputs : {
+		nixosConfigurations = {
+			cirrus = nixpkgs.lib.nixosSystem {
+				specialArgs = { inherit inputs; };
+				modules = [ ./nixos/cirrus/configuration.nix ];
+			};
+		}
 	};
 }
