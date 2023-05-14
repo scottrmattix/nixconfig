@@ -18,6 +18,6 @@
 				specialArgs = { inherit inputs; };
 				modules = [ ./nixos/cirrus/configuration.nix ];
 			};
-		}
+		};
 	};
 }
