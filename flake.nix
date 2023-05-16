@@ -26,6 +26,7 @@
 				modules = [ 
 				self.nixosModules.common
 				self.nixosModules.development
+				self.nixosModules.power
 				./nixos/cirrus/configuration.nix 
 				];
 			};
