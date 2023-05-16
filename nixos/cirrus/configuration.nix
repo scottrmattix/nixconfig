@@ -136,6 +136,8 @@
       starship
       networkmanagerapplet
       tor-browser-bundle-bin
+      texlive.combined.scheme-full
+      pandoc
     ];
   };
 
@@ -162,12 +164,6 @@
 
   # List services that you want to enable:
 
-  # Enable the OpenSSH daemon.
-  services.openssh = {
-    enable = true;
-    permitRootLogin = "no";
-    passwordAuthentication = false;
-  };
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];

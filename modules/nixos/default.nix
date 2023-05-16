@@ -1,6 +1,13 @@
+{inputs,...}:
+builtins.mapAttrs (name: value: value {inherit inputs;})
 {
-	common = ./groups/common
-	core = ./groups/core
-	development = ./groups/development
-	openssh = ./services/openssh
+	#groups
+	common = import ./groups/common;
+	core = import ./groups/core;
+	development = import ./groups/development;
+
+	#services
+	openssh = import ./services/openssh;
+	#tools
+	c = import ./tools/c;
 }

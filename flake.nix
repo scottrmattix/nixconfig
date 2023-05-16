@@ -14,16 +14,20 @@
 	};
 	outputs =   {self, nixpkgs, unstable, home-manager} @ inputs : {
 
-		overlays = import ./overlays {inherit inputs};
+		overlays = import ./overlays {inherit inputs;};
 
-		nixosModules = import ./modules/nixos;
+		nixosModules = import ./modules/nixos {inherit inputs;};
 
 		homeManagerModules = import ./modules/home-manager;
 
 		nixosConfigurations = {
 			cirrus = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit inputs; };
-				modules = [ ./nixos/cirrus/configuration.nix ];
+				modules = [ 
+				self.nixosModules.common
+				self.nixosModules.development
+				./nixos/cirrus/configuration.nix 
+				];
 			};
 		};
 		homeConfigurations = {
