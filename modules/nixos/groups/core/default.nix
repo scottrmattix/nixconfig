@@ -1,5 +1,11 @@
 {inputs,...}:
 {lib, config, pkgs, ...}:
 {
-	imports = [ ../../services/openssh ];
+	environment.systemPackages = with pkgs;[
+	git
+	wget
+	ripgrep
+	curl
+	vim
+	];
 }

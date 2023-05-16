@@ -1,5 +1,14 @@
 {inputs,...}:
 {lib, config, pkgs, ...}:
 {
-	imports = with inputs.self.nixosModules; [ openssh ];
+	environment.systemPackages = with pkgs; [
+	htop
+	neofetch
+	pandoc
+	home-manager
+	];
+	imports = with inputs.self.nixosModules; [ 
+	core
+	openssh
+	];
 }
