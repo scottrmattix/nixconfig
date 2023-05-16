@@ -11,9 +11,9 @@
   # nix config
   nix = {
 
-    registry = lib.mapAttrs(_: value: {flake = value; }) inputs;
+    # registry = lib.mapAttrs(_: value: {flake = value; }) inputs;
 
-    nixPath = lib.mapAttrs(key: value: "${key}=${value.to.path}") config.nix.registry;
+    # nixPath = lib.mapAttrs(key: value: "${key}=${value.to.path}") config.nix.registry;
 
     gc = {
       automatic = true;
@@ -31,6 +31,7 @@
     };
   };
 
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -44,7 +45,14 @@
   # networking.proxy.noProxy = "127.0.0.1,localhost,internal.domain";
 
   # Enable networking
-  networking.wireless.iwd.enable = true;
+  networking.wireless.iwd = {
+    enable = true;
+    settings = {
+      Settings = {
+      	AutoConnect = true;
+      };
+    };
+  };
   networking.networkmanager = {
     enable = true;
     wifi.backend = "iwd";
@@ -127,6 +135,7 @@
       rofi
       starship
       networkmanagerapplet
+      tor-browser-bundle-bin
     ];
   };
 
@@ -138,7 +147,10 @@
     wget
     neovim
     git
+    pulseaudio
+    home-manager
   ];
+
 
   # Some programs need SUID wrappers, can be configured further or are
   # started in user sessions.

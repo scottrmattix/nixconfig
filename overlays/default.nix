@@ -1,0 +1,5 @@
+{inputs,...}:
+{
+	default = final: prev: {
+	};
+}
