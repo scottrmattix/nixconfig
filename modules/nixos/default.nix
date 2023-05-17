@@ -13,4 +13,5 @@ builtins.mapAttrs (name: value: value {inherit inputs;})
 	rust = import ./tools/rust;
 	#system
 	power = import ./system/power;
+	fonts = import ./system/fonts;
 }

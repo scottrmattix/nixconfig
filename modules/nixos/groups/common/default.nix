@@ -10,5 +10,6 @@
 	imports = with inputs.self.nixosModules; [ 
 	core
 	openssh
+	fonts
 	];
 }
