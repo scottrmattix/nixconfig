@@ -1,5 +1,8 @@
 {inputs,...}:
 builtins.mapAttrs (name: value: value {inherit inputs;})
 {
-	git = ./git
+	starship = import ./starship;
+	zsh = import ./zsh;
+	wezterm = import ./wezterm;
+	git = import ./git;
 }

@@ -130,7 +130,6 @@
     packages = with pkgs; [
       firefox
       wezterm
-      zsh
       polybar
       rofi
       starship
@@ -138,6 +137,7 @@
       tor-browser-bundle-bin
       texlive.combined.scheme-full
     ];
+    shell = pkgs.zsh;
   };
 
 
@@ -148,6 +148,7 @@
     neovim
     pulseaudio
   ];
+  environment.pathsToLink = [ "/share/zsh" ];
 
 
   # Some programs need SUID wrappers, can be configured further or are

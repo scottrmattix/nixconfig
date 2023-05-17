@@ -12,12 +12,19 @@
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
 	};
-	outputs =   {self, nixpkgs, unstable, home-manager} @ inputs : {
+	outputs =   {self, nixpkgs, unstable, home-manager} @ inputs : 
+	let
+		system = "x86_64-linux";
+		pkgs = import nixpkgs {
+			inherit system;
+		};
+	in
+	{
 		overlays = import ./overlays {inherit inputs;};
 
 		nixosModules = import ./modules/nixos {inherit inputs;};
 
-		homeManagerModules = import ./modules/home-manager;
+		homeManagerModules = import ./modules/home-manager {inherit inputs;};
 
 		nixosConfigurations = {
 			cirrus = nixpkgs.lib.nixosSystem {
@@ -31,12 +38,15 @@
 			};
 		};
 		homeConfigurations = {
-			"scottm@cirrus" = home-manager.lib.homeManagerConfiguration {
-				pkgs = nixpkgs.legacyPackages.x86_64-linux;
+			scottm = home-manager.lib.homeManagerConfiguration {
+				inherit pkgs;
 				extraSpecialArgs = {inherit inputs; };
 				modules = [
+				self.homeManagerModules.starship
+				self.homeManagerModules.zsh
 				self.homeManagerModules.git
-				./home-manager/cirrus/scottm/home.nix 
+				self.homeManagerModules.wezterm
+				./home-manager/scottm/home.nix 
 				];
 			};
 		};
