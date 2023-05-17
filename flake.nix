@@ -13,7 +13,6 @@
 		};
 	};
 	outputs =   {self, nixpkgs, unstable, home-manager} @ inputs : {
-
 		overlays = import ./overlays {inherit inputs;};
 
 		nixosModules = import ./modules/nixos {inherit inputs;};
@@ -35,7 +34,10 @@
 			"scottm@cirrus" = home-manager.lib.homeManagerConfiguration {
 				pkgs = nixpkgs.legacyPackages.x86_64-linux;
 				extraSpecialArgs = {inherit inputs; };
-				modules = [./home-manager/cirrus/scottm/home.nix ];
+				modules = [
+				self.homeManagerModules.git
+				./home-manager/cirrus/scottm/home.nix 
+				];
 			};
 		};
 	};

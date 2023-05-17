@@ -10,6 +10,7 @@ builtins.mapAttrs (name: value: value {inherit inputs;})
 	openssh = import ./services/openssh;
 	#tools
 	c = import ./tools/c;
+	rust = import ./tools/rust;
 	#system
 	power = import ./system/power;
 }
