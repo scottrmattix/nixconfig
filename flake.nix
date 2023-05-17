@@ -42,6 +42,7 @@
 				inherit pkgs;
 				extraSpecialArgs = {inherit inputs; };
 				modules = [
+				self.homeManagerModules.nvim
 				self.homeManagerModules.starship
 				self.homeManagerModules.zsh
 				self.homeManagerModules.git

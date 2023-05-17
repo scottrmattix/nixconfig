@@ -136,6 +136,8 @@
       networkmanagerapplet
       tor-browser-bundle-bin
       texlive.combined.scheme-full
+			xclip
+			xsel
     ];
     shell = pkgs.zsh;
   };
