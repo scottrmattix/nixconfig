@@ -11,13 +11,25 @@
 			url = "github:nix-community/home-manager/release-22.11";
 			inputs.nixpkgs.follows = "nixpkgs";
 		};
+		nur = {
+			url = "github:nix-community/NUR";
+		};
+		neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
+
 	};
-	outputs =   {self, nixpkgs, unstable, home-manager} @ inputs : 
+	outputs =   {self, nixpkgs, unstable, home-manager, nur,...} @ inputs : 
 	let
 		system = "x86_64-linux";
 		pkgs = import nixpkgs {
 			inherit system;
 		};
+		modpkgs = ({config, pkgs, ...}: {
+				nixpkgs.overlays = [
+				self.overlays.unstable-overlay
+				self.overlays.nur-overlay
+				];
+		});
+
 	in
 	{
 		overlays = import ./overlays {inherit inputs;};
@@ -30,6 +42,7 @@
 			cirrus = nixpkgs.lib.nixosSystem {
 				specialArgs = { inherit inputs; };
 				modules = [ 
+				modpkgs
 				self.nixosModules.common
 				self.nixosModules.development
 				self.nixosModules.power

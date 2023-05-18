@@ -6,6 +6,7 @@
 	neofetch
 	pandoc
 	home-manager
+	fd
 	];
 	imports = with inputs.self.nixosModules; [ 
 	core
