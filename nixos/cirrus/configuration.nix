@@ -10,6 +10,7 @@
 
   # nix config
   nix = {
+		package = pkgs.unstable.nix;
 
     # registry = lib.mapAttrs(_: value: {flake = value; }) inputs;
 
@@ -29,9 +30,6 @@
     config = {
       allowUnfree = true;
     };
-		overlays = [
-			inputs.neovim-nightly-overlay.overlay
-		];
   };
 
 
@@ -129,7 +127,7 @@
   users.users.scottm = {
     isNormalUser = true;
     description = "Scott";
-    extraGroups = [ "networkmanager" "wheel" "audio"];
+    extraGroups = [ "networkmanager" "wheel" "audio" "video"];
     packages = with pkgs; [
       firefox
       wezterm
