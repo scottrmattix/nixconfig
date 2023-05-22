@@ -1,6 +1,6 @@
 {
-	description = "My NixOS configuration";
-	inputs = {
+  description = "Nix mono flake config for NixOS and Home-Manager";
+  inputs = {
 		nixpkgs = {
 			url = "github:nixos/nixpkgs/nixos-22.11";
 		};
@@ -9,59 +9,63 @@
 		};
 		home-manager = {
 			url = "github:nix-community/home-manager/release-22.11";
-			inputs.nixpkgs.follows = "nixpkgs";
+			inputs.nixpkgs.follows = "unstable";
 		};
 		nur = {
 			url = "github:nix-community/NUR";
 		};
+		flake-parts = {
+			url = "github:hercules-ci/flake-parts";
+		};
+    nvfetcher = {
+      url = "github:berberman/nvfetcher";
+    };
+    nixago = {
+      url = "github:nix-community/nixago";
+      inputs.nixpkgs.follows = "unstable";
+    };
+    treefmt = {
+      url = "github:numtide/treefmt-nix";
+    };
 
-	};
-	outputs =   {self, nixpkgs, unstable, home-manager, nur,...} @ inputs : 
+  };
+
+  outputs = { self, nixpkgs, unstable, home-manager, nur, flake-parts, ... }@inputs:
 	let
-		system = "x86_64-linux";
-		pkgs = import nixpkgs {
-			inherit system;
-		};
-		modpkgs = ({config, pkgs, ...}: {
-				nixpkgs.overlays = [
-				self.overlays.unstable-overlay
-				self.overlays.nur-overlay
-				];
-		});
-
+		lib = import ./lib inputs;
 	in
-	{
-		overlays = import ./overlays {inherit inputs;};
+	flake-parts.lib.mkFlake {inherit inputs; }{
+		imports = with inputs; [
+    treefmt.flakeModule
 
-		nixosModules = import ./modules/nixos {inherit inputs;};
+    ./modules/flake/treefmt.nix
+    ./modules/flake/shell.nix
+    ./modules/flake/nvfetcher.nix
+    ./modules
 
-		homeManagerModules = import ./modules/home-manager {inherit inputs;};
+		./hosts/nixos
+    ./home
 
-		nixosConfigurations = {
-			cirrus = nixpkgs.lib.nixosSystem {
-				specialArgs = { inherit inputs; };
-				modules = [ 
-				modpkgs
-				self.nixosModules.common
-				self.nixosModules.development
-				self.nixosModules.power
-				./nixos/cirrus/configuration.nix 
-				];
-			};
-		};
-		homeConfigurations = {
-			scottm = home-manager.lib.homeManagerConfiguration {
-				inherit pkgs;
-				extraSpecialArgs = {inherit inputs; };
-				modules = [
-				self.homeManagerModules.nvim
-				self.homeManagerModules.starship
-				self.homeManagerModules.zsh
-				self.homeManagerModules.git
-				self.homeManagerModules.wezterm
-				./home-manager/scottm/home.nix 
-				];
-			};
-		};
+    ./overlays
+		];
+		systems = [
+		"x86_64-linux"
+		];
+		perSystem = {config,pkgs,system, ...}:
+      {
+        _module.args = {
+          inherit self inputs lib;
+          pkgs = import nixpkgs {
+            inherit system;
+            overlays = [self.overlays.default];
+            config.allowUnfree = true;
+          };
+        };
+      };
+
+      flake = {
+        inherit lib;
+      };
+		debug = true;
 	};
 }

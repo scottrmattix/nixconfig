@@ -1,9 +1,25 @@
-{inputs,...}:
+{self,inputs, lib, ...}:
+let
+  inherit (self.lib) importModulesWith;
+in
 {
-	nur-overlay = final: prev: {
-		nur = inputs.nur.legacyPackages.${prev.system};
-	};
-	unstable-overlay = final: prev: {
-		unstable = inputs.unstable.legacyPackages.${prev.system};
-	};
+  flake = {
+    overlays = {
+      default =
+        (_final: prev:
+        let
+          system = prev.system;
+        in
+        {
+          unstable = import inputs.unstable {
+            inherit system;
+            config.allowUnfree = true;
+          };
+          NUR = import inputs.NUR {
+            inherit system;
+            config.allowUnfree = true;
+          };
+        });
+    };
+  };
 }
