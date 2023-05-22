@@ -11,31 +11,30 @@
     colors = false;
 
     pre-commit.commands = {
-      # Nix, stop sorting things by alphabetical order! It's annoying sometimes.
       "1_format".run = "LEFTHOOK_QUIET=meta,success ${lefthook} run format";
       "2_checks".run = "LEFTHOOK_QUIET=meta,success ${lefthook} run checks";
     };
 
     format.commands = {
-      treefmt.run = "${treefmt} --fail-on-change {staged_files}";
+      #  treefmt.run = "${treefmt} --fail-on-change {staged_files}";
     };
 
     checks = {
       parallel = true;
       commands = {
-#        statix = {
-#          glob = "*.nix";
-#          exclude = "generated.nix|node-packages";
-#          run = "echo {staged_files} | xargs -n1 ${pkgs.statix}/bin/statix check";
-#        };
+        #        statix = {
+        #          glob = "*.nix";
+        #          exclude = "generated.nix|node-packages";
+        #          run = "echo {staged_files} | xargs -n1 ${pkgs.statix}/bin/statix check";
+        #        };
 
-#       deadnix = {
-#          glob = "*.nix";
-#          exclude = "generated.nix|node-packages";
-#          run = "${pkgs.deadnix}/bin/deadnix -f {staged_files}";
-#        };
-#
-#        editorconfig-checker.run = "${pkgs.editorconfig-checker}/bin/editorconfig-checker";
+        #       deadnix = {
+        #          glob = "*.nix";
+        #          exclude = "generated.nix|node-packages";
+        #          run = "${pkgs.deadnix}/bin/deadnix -f {staged_files}";
+        #        };
+        #
+        #        editorconfig-checker.run = "${pkgs.editorconfig-checker}/bin/editorconfig-checker";
       };
     };
   };
