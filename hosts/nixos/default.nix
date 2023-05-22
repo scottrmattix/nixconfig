@@ -1,5 +1,10 @@
-{ lib, inputs, self, withSystem,...}:
-let
+{
+  lib,
+  inputs,
+  self,
+  withSystem,
+  ...
+}: let
   inherit (self.lib) importModules collectLeaves genModules genHosts collectOptions;
 
   mkNixOS = hostname: configuration: {system ? "x86_64-linux", ...}:
@@ -14,19 +19,20 @@ let
         specialArgs = {
           inherit self inputs lib pkgs;
         };
-        modules = with inputs; [
-          home-manager.nixosModules.home-manager
-          (import configuration)
-          {
-            networking.hostName = hostname;
-            users.mutableUsers = true;
-            nixpkgs = {
-              inherit pkgs;
-              config.allowUnfree = true;
-            };
-          }
-        ]
-        ++ (collectOptions self.nixosModules);
+        modules = with inputs;
+          [
+            home-manager.nixosModules.home-manager
+            (import configuration)
+            {
+              networking.hostName = hostname;
+              users.mutableUsers = true;
+              nixpkgs = {
+                inherit pkgs;
+                config.allowUnfree = true;
+              };
+            }
+          ]
+          ++ (collectOptions self.nixosModules);
       });
 
   generatedHosts = genHosts mkNixOS ./machines;

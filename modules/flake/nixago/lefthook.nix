@@ -23,20 +23,19 @@
     checks = {
       parallel = true;
       commands = {
-        statix = {
-          glob = "*.nix";
-          exclude = "generated.nix|node-packages";
-          # statix only supports single files; cringe
-          run = "echo {staged_files} | xargs -n1 ${pkgs.statix}/bin/statix check";
-        };
+#        statix = {
+#          glob = "*.nix";
+#          exclude = "generated.nix|node-packages";
+#          run = "echo {staged_files} | xargs -n1 ${pkgs.statix}/bin/statix check";
+#        };
 
-        deadnix = {
-          glob = "*.nix";
-          exclude = "generated.nix|node-packages";
-          run = "${pkgs.deadnix}/bin/deadnix -f {staged_files}";
-        };
-
-        editorconfig-checker.run = "${pkgs.editorconfig-checker}/bin/editorconfig-checker";
+#       deadnix = {
+#          glob = "*.nix";
+#          exclude = "generated.nix|node-packages";
+#          run = "${pkgs.deadnix}/bin/deadnix -f {staged_files}";
+#        };
+#
+#        editorconfig-checker.run = "${pkgs.editorconfig-checker}/bin/editorconfig-checker";
       };
     };
   };

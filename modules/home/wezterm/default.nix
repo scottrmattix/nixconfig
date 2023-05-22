@@ -1,7 +1,10 @@
-{inputs,...}:
-{config, lib, pkgs, ...}:
-{
-	xdg.configFile."wezterm/wezterm.lua" = {
-		source = ./wezterm.lua;
-	};
+{inputs, ...}: {
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  xdg.configFile."wezterm/wezterm.lua" = {
+    source = ./wezterm.lua;
+  };
 }

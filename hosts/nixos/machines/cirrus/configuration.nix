@@ -1,20 +1,24 @@
-{inputs, lib, config, pkgs, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
-      ./hardware-configuration.nix
-    ];
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  imports = [
+    # Include the results of the hardware scan.
+    ./hardware-configuration.nix
+  ];
 
   # nix config
   nix = {
-
     gc = {
       automatic = true;
       dates = "weekly";
       options = "--delete-older-than 30d";
     };
     settings = {
-      experimental-features = [ "nix-command" "flakes"];
+      experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
     };
   };
@@ -23,7 +27,6 @@
       allowUnfree = true;
     };
   };
-
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
@@ -37,7 +40,7 @@
     enable = true;
     settings = {
       Settings = {
-      	AutoConnect = true;
+        AutoConnect = true;
       };
     };
   };
@@ -114,7 +117,7 @@
   users.users.scottm = {
     isNormalUser = true;
     description = "Scott";
-    extraGroups = [ "networkmanager" "wheel" "audio"];
+    extraGroups = ["networkmanager" "wheel" "audio"];
     packages = with pkgs; [
       firefox
       wezterm
@@ -124,12 +127,11 @@
       networkmanagerapplet
       tor-browser-bundle-bin
       texlive.combined.scheme-full
-			xclip
-			xsel
+      xclip
+      xsel
     ];
     shell = pkgs.zsh;
   };
-
 
   # List packages installed in system profile. To search, run:
   # $ nix search wget
@@ -138,7 +140,7 @@
     unstable.neovim
     pulseaudio
   ];
-  environment.pathsToLink = [ "/share/zsh" ];
+  environment.pathsToLink = ["/share/zsh"];
 
   profiles = {
     suites = {
@@ -151,5 +153,4 @@
   };
 
   system.stateVersion = "22.11";
-
 }

@@ -1,10 +1,8 @@
-lib:
-let
+lib: let
   importers = import ./importers.nix lib;
 
   inherit (importers) flattenTree rakeLeaves;
-in
-rec {
+in rec {
   /*
   Generate an attrset by mapping a function over a list of attribute values.
 
@@ -160,8 +158,6 @@ rec {
   */
   genUsers = builder: users: with lib; mapAttrs builder (rakeLeaves users);
 
-
-
   /*
   And improved versions of genModules built to suit my needs, this only take one module at atime (in theory one should mapAttrs) by path and name with a particular input to describe the flake that this is being evaluated in
 
@@ -170,36 +166,37 @@ rec {
   @param name, the namespace of the module to which it will be mapped to
   @return, a nixos module with options and namespacing
   */
-  improveGenModule = {inputs,self}@flake: name: path:
-  with lib;
-  let
-    components = (splitString "." name);
-    opt = components ++ ["enable"];
-  in
-  {config,...}@args:
-  {
-    options = lib.setAttrByPath opt (mkOption {
-        type = types.bool;
-        default = false;
-        description = "Whether to enable ${last components}";
-    });
+  improveGenModule = {
+    inputs,
+    self,
+  } @ flake: name: path:
+    with lib; let
+      components = splitString "." name;
+      opt = components ++ ["enable"];
+    in
+      {config, ...} @ args: {
+        options = lib.setAttrByPath opt (mkOption {
+          type = types.bool;
+          default = false;
+          description = "Whether to enable ${last components}";
+        });
 
-    config =
-      mkIf (getAttrFromPath opt config)
+        config =
+          mkIf (getAttrFromPath opt config)
           (import path flake args);
-  };
+      };
 
-  genModsFrom = {inputs,self}@flake: prefix: directory:
-  with lib;
-  let
-    # Tree with modules and their paths in attrset form
-    tree = rakeLeaves directory;
-    # Contains paths for each profile in string form
-    leaves' = flattenTree tree;
-    # Contains paths for each profile with the prefix added
-    leaves = mapAttrs' (n: nameValuePair "${prefix}.${n}") leaves';
-    fun = improveGenModule {inherit inputs self;};
-  in
-    (mapAttrs fun leaves);
+  genModsFrom = {
+    inputs,
+    self,
+  } @ flake: prefix: directory:
+    with lib; let
+      # Tree with modules and their paths in attrset form
+      tree = rakeLeaves directory;
+      # Contains paths for each profile in string form
+      leaves' = flattenTree tree;
+      # Contains paths for each profile with the prefix added
+      leaves = mapAttrs' (n: nameValuePair "${prefix}.${n}") leaves';
+      fun = improveGenModule {inherit inputs self;};
+    in (mapAttrs fun leaves);
 }
-

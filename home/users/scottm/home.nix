@@ -1,5 +1,10 @@
-{inputs, lib, config, pkgs, ...}:
 {
+  inputs,
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   home = {
     username = "scottm";
     homeDirectory = "/home/scottm";
@@ -13,6 +18,7 @@
     wezterm.enable = true;
     starship.enable = true;
   };
+  programs.direnv.enable = true;
 
   home.stateVersion = "22.11";
 }

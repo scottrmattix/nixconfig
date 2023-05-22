@@ -1,6 +1,12 @@
-{inputs,self}:
-{ pkgs, config, lib, ...}:
 {
+  inputs,
+  self,
+}: {
+  pkgs,
+  config,
+  lib,
+  ...
+}: {
   services.openssh = {
     enable = true;
     permitRootLogin = "no";

@@ -1,11 +1,17 @@
-{inputs,self}:
-{lib, config, pkgs, ...}:
 {
-  environment.systemPackages = with pkgs;[
-  git
-  wget
-  ripgrep
-  curl
-  vim
+  inputs,
+  self,
+}: {
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
+  environment.systemPackages = with pkgs; [
+    git
+    wget
+    ripgrep
+    curl
+    vim
   ];
 }

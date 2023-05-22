@@ -20,7 +20,6 @@
         name = "nix-shell";
         packages = with pkgs;
           [
-            agenix
             config.treefmt.build.wrapper
             lefthook
             node2nix

@@ -1,10 +1,16 @@
-{inputs,self}:
-{lib, config, pkgs,...}:
 {
+  inputs,
+  self,
+}: {
+  lib,
+  config,
+  pkgs,
+  ...
+}: {
   environment.systemPackages = with pkgs; [
-  gcc
-  gnumake
-  clang
-  bear
+    gcc
+    gnumake
+    clang
+    bear
   ];
 }
