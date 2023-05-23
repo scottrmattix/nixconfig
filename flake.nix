@@ -27,6 +27,7 @@
     treefmt = {
       url = "github:numtide/treefmt-nix";
     };
+    neovim-nightly-overlay.url = "github:nix-community/neovim-nightly-overlay";
   };
 
   outputs = {
@@ -76,6 +77,7 @@
               nvfetcher.overlays.default
               self.overlays.default
               self.overlays.flakepkgs
+              inputs.neovim-nightly-overlay.overlay
             ];
             config.allowUnfree = true;
           };

@@ -174,7 +174,7 @@ in rec {
       components = splitString "." name;
       opt = components ++ ["enable"];
     in
-      {config, ...} @ args: {
+      {config,lib, ...} @ args: {
         options = lib.setAttrByPath opt (mkOption {
           type = types.bool;
           default = false;
