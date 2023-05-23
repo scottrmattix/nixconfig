@@ -13,7 +13,7 @@
   ];
 in
   map (f: {
-    data = import ../../${f};
+    data = import ../../../${f};
     output = "${builtins.dirOf f}/nvfetcher.toml";
     engine = nvfetcherEngine {};
   })
