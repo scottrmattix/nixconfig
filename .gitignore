@@ -3,4 +3,5 @@ result
 .pre-commit-config.yaml
 
 # nixago: ignore-linked-files
+//home/nvim/nvfetcher.toml
 /lefthook.yml

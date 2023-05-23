@@ -56,6 +56,8 @@
         ./home
 
         ./overlays
+
+        ./pkgs
       ];
       systems = [
         "x86_64-linux"
@@ -73,6 +75,7 @@
             overlays = [
               nvfetcher.overlays.default
               self.overlays.default
+              self.overlays.flakepkgs
             ];
             config.allowUnfree = true;
           };
