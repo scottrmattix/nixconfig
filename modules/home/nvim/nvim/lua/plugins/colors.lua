@@ -1,11 +1,3 @@
-local colorscheme_spec = use("water-sucks/darkrose.nvim", {
-  dev = true,
-  lazy = false,
-  config = function()
-    vim.cmd.colorscheme("darkrose")
-  end,
-})
-
 local colorizer_spec = use("NvChad/nvim-colorizer.lua", {
   event = "VeryLazy",
   config = function()
@@ -61,7 +53,6 @@ local lush_spec = use("rktjmp/lush.nvim", {
 })
 
 return {
-  colorscheme_spec,
   colorizer_spec,
   highlight_current_n_spec,
   lush_spec,

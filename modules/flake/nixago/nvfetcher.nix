@@ -9,7 +9,7 @@
     (pkgs.formats.nvfetcherToml opts).generate name value;
 
   nvfetcherFiles = [
-  "modules/home/nvim/fetch.nix"
+    "modules/home/nvim/fetch.nix"
   ];
 in
   map (f: {

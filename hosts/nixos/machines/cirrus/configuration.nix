@@ -10,24 +10,6 @@
     ./hardware-configuration.nix
   ];
 
-  # nix config
-  nix = {
-    gc = {
-      automatic = true;
-      dates = "weekly";
-      options = "--delete-older-than 30d";
-    };
-    settings = {
-      experimental-features = ["nix-command" "flakes"];
-      auto-optimise-store = true;
-    };
-  };
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
-
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -35,19 +17,6 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "cirrus"; # Define your hostname.
-
-  networking.wireless.iwd = {
-    enable = true;
-    settings = {
-      Settings = {
-        AutoConnect = true;
-      };
-    };
-  };
-  networking.networkmanager = {
-    enable = true;
-    wifi.backend = "iwd";
-  };
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -84,23 +53,6 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable sound with pipewire.
-  sound.enable = true;
-  hardware.pulseaudio.enable = false;
-  security.rtkit.enable = true;
-  services.pipewire = {
-    enable = true;
-    alsa.enable = true;
-    alsa.support32Bit = true;
-    pulse.enable = true;
-    # If you want to use JACK applications, uncomment this
-    #jack.enable = true;
-
-    # use the example session manager (no others are packaged yet so this is enabled by default,
-    # no need to redefine it in your config for now)
-    #media-session.enable = true;
-  };
 
   # Enable touchpad support (enabled default in most desktopManager).
   services.xserver.libinput = {
@@ -149,7 +101,10 @@
     };
     system = {
       power.enable = true;
+      wireless.enable = true;
+      sound.enable = true;
     };
+    nix.enable = true;
   };
 
   system.stateVersion = "22.11";

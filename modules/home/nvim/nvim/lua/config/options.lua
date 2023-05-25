@@ -18,9 +18,6 @@ local options = {
 	updatetime = 50,
 
 	scrolloff = 8,
-
-	foldenable = false,
-	editorconfig = true,
 }
 
 for k, v in pairs(options) do

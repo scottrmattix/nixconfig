@@ -15,7 +15,7 @@
     }:
       inputs.home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
-        extraSpecialArgs = {inherit inputs self pkgs ;};
+        extraSpecialArgs = {inherit inputs self pkgs;};
         modules = with inputs;
           [
             (import configuration)
