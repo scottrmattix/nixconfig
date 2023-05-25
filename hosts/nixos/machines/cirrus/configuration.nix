@@ -36,34 +36,8 @@
     LC_TIME = "en_US.UTF-8";
   };
 
-  # Enable the X11 windowing system.
-  services.xserver.enable = true;
-
-  # Enable the KDE Plasma Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  # services.xserver.desktopManager.plasma5.enable = true;
-  services.xserver.windowManager.i3.enable = true;
-  services.picom.enable = true;
-
-  # Configure keymap in X11
-  services.xserver = {
-    layout = "us";
-    xkbVariant = "";
-  };
-
   # Enable CUPS to print documents.
   services.printing.enable = true;
-
-  # Enable touchpad support (enabled default in most desktopManager).
-  services.xserver.libinput = {
-    mouse = {
-      naturalScrolling = false;
-    };
-    touchpad = {
-      naturalScrolling = true;
-    };
-    enable = true;
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.scottm = {
@@ -73,10 +47,7 @@
     packages = with pkgs; [
       firefox
       wezterm
-      polybar
-      rofi
       starship
-      networkmanagerapplet
       tor-browser-bundle-bin
       texlive.combined.scheme-full
       xclip
@@ -90,11 +61,14 @@
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     unstable.neovim
-    pulseaudio
   ];
   environment.pathsToLink = ["/share/zsh"];
 
   profiles = {
+    desktops = {
+      i3.enable = true;
+      displaymanagers.lightdm.enable = true;
+    };
     suites = {
       common.enable = true;
       development.enable = true;
