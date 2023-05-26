@@ -11,7 +11,7 @@ profiles = {
       rofi
       polybar
       networkmanagerapplet
-      i3lock-fancy-rapid
+      i3lock
     ];
   };
   services = {

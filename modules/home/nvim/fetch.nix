@@ -57,7 +57,6 @@ in
     (plugin "iurimateus" "luasnip-latex-snippets.nvim")
 
     # Specialized windows
-    (plugin "stevearc" "dressing.nvim")
     (plugin "nvim-tree" "nvim-tree.lua")
     (plugin "nvim-telescope" "telescope.nvim")
     (plugin "folke" "trouble.nvim")
@@ -89,7 +88,6 @@ in
     (plugin "nvim-treesitter" "playground")
     (plugin "windwp" "nvim-ts-autotag")
     (plugin "JoosepAlviste" "nvim-ts-context-commentstring")
-    (plugin "water-sucks" "darkrose.nvim")
     (plugin "nvim-lualine" "lualine.nvim")
     (plugin "nvim-tree" "nvim-web-devicons")
     (plugin "lukas-reineke" "indent-blankline.nvim")

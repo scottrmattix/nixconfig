@@ -5,7 +5,7 @@ local on_attach = require("plugins.lsp.on_attach")
 -- their respective plugins.
 local servers = {
 	"pyright",
-	"ccls",
+  "clangd",
 	"gopls",
 	"bashls",
 	"lua_ls",

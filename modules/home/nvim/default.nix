@@ -91,11 +91,11 @@ in
           ccls
           gopls
           ltex-ls
-          #emmet-ls
           lua-language-server
           nodePackages.bash-language-server
           nodePackages.graphql-language-service-cli
           nodePackages.vscode-langservers-extracted
+          clang-tools
           pkgs.nil
 
           # null-ls sources

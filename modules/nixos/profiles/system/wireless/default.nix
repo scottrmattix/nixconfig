@@ -6,6 +6,7 @@
 }: {
   networking.wireless.iwd = {
     enable = true;
+    package = pkgs.unstable.iwd;
     settings = {
       Settings = {
         AutoConnect = true;
