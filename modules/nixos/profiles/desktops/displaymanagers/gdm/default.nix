@@ -6,13 +6,9 @@
 }: {
   profiles.services.xserver.enable = true;
   services.xserver.displayManager = {
-    lightdm = {
+    gdm = {
       enable = true;
-      greeters = {
-        gtk = {
-          enable = true;
-        };
-      };
+      wayland = true;
     };
   };
 }

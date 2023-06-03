@@ -2,14 +2,14 @@
   description = "Nix mono flake config for NixOS and Home-Manager";
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-22.11";
-    };
-    unstable = {
       url = "github:nixos/nixpkgs/nixos-unstable";
+    };
+    stable = {
+      url = "github:nixos/nixpkgs/nixos-22.11";
     };
     home-manager = {
       url = "github:nix-community/home-manager/release-22.11";
-      inputs.nixpkgs.follows = "unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nur = {
       url = "github:nix-community/NUR";
@@ -22,7 +22,7 @@
     };
     nixago = {
       url = "github:nix-community/nixago";
-      inputs.nixpkgs.follows = "unstable";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     treefmt = {
       url = "github:numtide/treefmt-nix";
@@ -33,7 +33,7 @@
   outputs = {
     self,
     nixpkgs,
-    unstable,
+    stable,
     home-manager,
     nur,
     flake-parts,

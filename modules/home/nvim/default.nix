@@ -9,7 +9,7 @@
   sources = pkgs.callPackage _sources/generated.nix {};
 
   # Grammar builder function
-  buildGrammar = pkgs.callPackage "${inputs.unstable}/pkgs/development/tools/parsing/tree-sitter/grammar.nix" {};
+  buildGrammar = pkgs.callPackage "${inputs.nixpkgs}/pkgs/development/tools/parsing/tree-sitter/grammar.nix" {};
 
   # Build grammars that were fetched using nvfetcher
   generatedGrammars = with lib;
@@ -70,7 +70,7 @@
 in
   lib.mkMerge [
     {
-      home.packages = with pkgs.unstable; [
+      home.packages = with pkgs; [
         neovim-remote
       ];
 
@@ -85,7 +85,7 @@ in
         withRuby = false;
         withNodeJs = false;
 
-        extraPackages = with pkgs.unstable; [
+        extraPackages = with pkgs; [
           # Language servers
           pyright
           ccls
@@ -96,7 +96,8 @@ in
           nodePackages.graphql-language-service-cli
           nodePackages.vscode-langservers-extracted
           clang-tools
-          pkgs.nil
+          rust-analyzer
+          stable.nil
 
           # null-ls sources
           alejandra

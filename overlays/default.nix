@@ -11,14 +11,12 @@ in {
       default = _final: prev: let
         system = prev.system;
       in {
-        unstable = import inputs.unstable {
+        stable = import inputs.stable {
           inherit system;
           config.allowUnfree = true;
         };
-        NUR = import inputs.NUR {
-          inherit system;
-          config.allowUnfree = true;
-        };
+        nur = inputs.nur;
+        fcitx-engines = prev.fcitx5;
       };
     };
   };

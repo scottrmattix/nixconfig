@@ -17,6 +17,9 @@
       la = "ls -A";
       l = "ls -CF";
     };
+    initExtra = ''
+    unsetopt beep
+    '';
   };
   programs.dircolors = {
     enable = true;

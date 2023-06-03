@@ -21,6 +21,7 @@
         };
         modules = with inputs;
           [
+            nur.nixosModules.nur
             home-manager.nixosModules.home-manager
             (import configuration)
             {

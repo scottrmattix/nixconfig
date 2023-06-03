@@ -60,11 +60,15 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    unstable.neovim
+    neovim
   ];
   environment.pathsToLink = ["/share/zsh"];
+  programs.zsh.enable = true;
 
   profiles = {
+    apps = {
+      shortwave.enable = true;
+    };
     desktops = {
       i3.enable = true;
       displaymanagers.lightdm.enable = true;
@@ -80,6 +84,10 @@
     };
     nix.enable = true;
   };
+
+  networking.firewall.allowedTCPPorts = [
+  8080
+  ];
 
   system.stateVersion = "22.11";
 }
