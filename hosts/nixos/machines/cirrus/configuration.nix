@@ -49,7 +49,6 @@
       wezterm
       starship
       tor-browser-bundle-bin
-      texlive.combined.scheme-full
       xclip
       xsel
     ];
