@@ -18,6 +18,7 @@
         extraSpecialArgs = {inherit inputs self pkgs;};
         modules = with inputs;
           [
+            hyprland.homeManagerModules.default
             (import configuration)
           ]
           ++ (collectOptions self.homeManagerModules);

@@ -4,9 +4,19 @@
   lib,
   ...
 }: {
-  profiles.desktops.displaymanagers.gdm.enable = true;
+  profiles= {
+    desktops.displaymanagers.gdm.enable = true;
+    system.wayland.enable = true;
+  };
+  services.xserver.displayManager.gdm = {
+      wayland = true;
+    };
   environment.systemPackages = with pkgs; [
-    rofi-wayland
+    wofi
+    wlogout
+    swaybg
+    swaylock
+    wlr-randr
   ];
   xdg.portal.wlr.enable = true;
   programs.hyprland = {

@@ -43,7 +43,7 @@
   users.users.scottm = {
     isNormalUser = true;
     description = "Scott";
-    extraGroups = ["networkmanager" "wheel" "audio"];
+    extraGroups = ["networkmanager" "wheel" "audio" "jackaudio"];
     packages = with pkgs; [
       firefox
       wezterm
@@ -67,10 +67,10 @@
   profiles = {
     apps = {
       shortwave.enable = true;
+      zynaddsubfx.enable = true;
     };
     desktops = {
-      i3.enable = true;
-      displaymanagers.lightdm.enable = true;
+      hyprland.enable = true;
     };
     suites = {
       common.enable = true;

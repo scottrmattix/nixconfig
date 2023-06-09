@@ -12,5 +12,6 @@
     gnumake
     clang
     bear
+    gdb
   ];
 }

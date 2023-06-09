@@ -17,6 +17,8 @@
     nvim.enable = true;
     wezterm.enable = true;
     starship.enable = true;
+    zellij.enable = true;
+    hyprland.enable = true;
   };
   programs.direnv = {
     enable = true;

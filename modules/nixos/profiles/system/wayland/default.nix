@@ -8,10 +8,7 @@
   ...
 }: {
   environment.systemPackages = with pkgs; [
-    rustc
-    cargo
-    rustfmt
-    clippy
-    gdb
+    wl-clipboard
   ];
+  programs.xwayland.enable = true;
 }
