@@ -1,0 +1,9 @@
+(defvar battery_expanded false)
+
+(defwidget panel_battery [orientation] (box
+  :space-evenly false
+  :class "button-bin"
+  :tooltip "${battery_status == "charging" ? "Charging: ${battery_time}" : "Discharging: ${battery_time}"}"
+  (label
+    :class "panel battery"
+    :text "${battery_percent}% ${battery_icon}  ")))

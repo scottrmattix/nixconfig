@@ -43,14 +43,12 @@
   users.users.scottm = {
     isNormalUser = true;
     description = "Scott";
-    extraGroups = ["networkmanager" "wheel" "audio" "jackaudio"];
+    extraGroups = ["networkmanager" "wheel" "audio" "jackaudio" "video"];
     packages = with pkgs; [
       firefox
       wezterm
       starship
       tor-browser-bundle-bin
-      xclip
-      xsel
     ];
     shell = pkgs.zsh;
   };
@@ -67,7 +65,6 @@
   profiles = {
     apps = {
       shortwave.enable = true;
-      zynaddsubfx.enable = true;
     };
     desktops = {
       hyprland.enable = true;

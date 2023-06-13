@@ -13,4 +13,9 @@
   xdg.configFile."hypr/hyprland.conf" = {
     source = ./hyprland.conf;
   };
+  home.packages = with pkgs;[
+    dunst
+  ];
+  profiles.waybar.enable = true;
+  profiles.eww.enable = true;
 }

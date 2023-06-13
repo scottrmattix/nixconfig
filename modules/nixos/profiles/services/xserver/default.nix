@@ -18,4 +18,8 @@
       };
     };
   };
+  environment.systemPackages = with pkgs; [
+      xclip
+      xsel
+  ];
 }

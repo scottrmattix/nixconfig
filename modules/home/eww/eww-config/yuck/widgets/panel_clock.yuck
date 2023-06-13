@@ -1,0 +1,13 @@
+
+
+(defwidget panel_clock []
+  (box
+    :tooltip "${time}"
+    :class "panel-item"
+    (button (box
+    :orientation "v"
+    :width 60
+    :class "clock"
+    (label :text "${time_HHmm}")
+    (label :text "${time_MMddYYYY}"))
+)))

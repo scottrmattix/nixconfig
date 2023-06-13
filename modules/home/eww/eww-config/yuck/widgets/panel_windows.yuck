@@ -1,0 +1,7 @@
+(defwidget panel_window [angle] (box :class "panel-window"
+  :width 30
+        (label
+            :limit-width 30
+            :text {window != "null" ? window : "---"}
+            :angle angle)
+))

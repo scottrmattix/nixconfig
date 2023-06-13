@@ -33,6 +33,9 @@
     hyprland = {
       url = "github:hyprwm/Hyprland";
     };
+    eww = {
+      url = "github:elkowar/eww";
+    };
   };
 
   outputs = {
@@ -45,6 +48,7 @@
     nvfetcher,
     nixago,
     treefmt,
+    eww,
     ...
   } @ inputs: let
     lib = import ./lib inputs;

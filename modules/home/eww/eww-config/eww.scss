@@ -1,0 +1,57 @@
+$bg_color: #3b4252;
+$fg_color: #e5e9f0;
+$text_color: #eceff4;
+$base_color: #ffffff;
+$selected_bg_color: #4c566a;
+$selected_fg_color: #ffffff;
+$tooltip_bg_color: #000000;
+$tooltip_fg_color: #ffffff;
+
+* {
+  all: unset;
+  font-family: "Jetbrains Mono";
+}
+
+.hpanel {
+  background: $bg_color;
+  border-width: 1px;
+  padding-left: 2px;
+  padding-right: 2px;
+  border-style: solid;
+  border-radius: 2px;
+  border-color: $fg_color;
+  color:  $text_color;
+}
+text {
+  padding: 1px;
+}
+
+.panel-timer {
+  font-size: 11px;
+}
+.panel-window {
+  background-size: cover;
+  border-style: inset;
+  border-left-width: 1px;
+  padding-left: 8px;
+}
+
+.workspace-btn {
+  min-width : 15px;
+  padding: 0px 3px;
+}
+.occupied {
+ background: shade($bg_color, 1.02);
+}
+.active {
+  background: $selected_bg_color;
+}
+.bar-icon {
+  min-height: 15px;
+  min-width: 30px;
+  background-image: url("file:/home/scottm/.config/eww/assets/snowclean.png");
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 3px;
+}

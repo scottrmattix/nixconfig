@@ -1,0 +1,16 @@
+(deflisten window `./scripts/hyprland.sh window`)
+(deflisten workspaces :initial "{}" `./scripts/hyprland.sh workspaces`)
+
+(defvar battery_status "discharging")
+(defvar battery_time "0.0")
+(defvar battery_icon "")
+(deflisten battery_percent :initial "" "./scripts/battery.sh")
+
+(defvar time_HHmm "")
+(defvar time_MMddYYYY "")
+(defpoll time
+  :interval "1s"
+  "scripts/time.sh")
+
+(include "./yuck/widgets.yuck")
+(include "./yuck/windows.yuck")

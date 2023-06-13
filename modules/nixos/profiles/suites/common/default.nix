@@ -21,6 +21,12 @@
     taskwarrior-tui
     keepassxc
     element-desktop
+    flameshot
+    obsidian
+    zathura
+    socat
+    jq
+    gdk-pixbuf
   ];
   profiles.suites.core.enable = true;
   profiles.services = {

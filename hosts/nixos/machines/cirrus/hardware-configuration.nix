@@ -34,7 +34,7 @@
 
   services = {
     logind = {
-      lidSwitch = "suspend-then-hibernate";
+      lidSwitch = "suspend";
       lidSwitchExternalPower = "suspend";
     };
     auto-cpufreq.enable = true;

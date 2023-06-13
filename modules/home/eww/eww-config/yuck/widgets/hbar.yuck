@@ -1,0 +1,20 @@
+(defwidget hbar [] (centerbox
+  :class "hpanel"
+  (box
+  :class "leftBar"
+  :space-evenly false
+  (box :class "bar-icon")
+  (panel_workspaces :orientation "h")
+  (panel_window :angle 0)
+  )
+  (box
+    :class "centerBar"
+  )
+  (box
+    :halign "end"
+    :space-evenly "false"
+    :class "rightBar"
+  (panel_battery :orientation "h")
+  (panel_clock)
+  )
+))

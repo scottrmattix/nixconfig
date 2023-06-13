@@ -8,7 +8,7 @@
 in {
   flake = {
     overlays = {
-      default = _final: prev: let
+      default = final: prev: let
         system = prev.system;
       in {
         stable = import inputs.stable {
@@ -17,6 +17,10 @@ in {
         };
         nur = inputs.nur;
         fcitx-engines = prev.fcitx5;
+        waybar = prev.waybar.overrideAttrs (oldAttrs: {
+            mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
+        });
+        eww-wayland = inputs.eww.packages.x86_64-linux.eww-wayland;
       };
     };
   };
