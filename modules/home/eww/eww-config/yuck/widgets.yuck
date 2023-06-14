@@ -2,5 +2,6 @@
 (include "./yuck/widgets/panel_workspaces.yuck")
 (include "./yuck/widgets/panel_battery.yuck")
 (include "./yuck/widgets/panel_clock.yuck")
+(include "./yuck/widgets/panel_notif_toggle.yuck")
 
 (include "./yuck/widgets/hbar.yuck")

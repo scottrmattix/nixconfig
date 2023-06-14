@@ -7,7 +7,7 @@
     (button (box
     :orientation "v"
     :width 60
-    :class "clock"
+    :class "panel-clock"
     (label :text "${time_HHmm}")
     (label :text "${time_MMddYYYY}"))
 )))

@@ -1,0 +1,10 @@
+(defvar notifications true)
+
+(defwidget panel_notif_toggle []
+  (box
+    :tooltip "${notifications ? "disable" : "enable"}"
+    :class "panel-item"
+    (button
+      :onclick "./scripts/notification_toggle.sh ${notifications}"
+      (label :text "${notifications ? "󰂚" : "󰂛"}")
+    )))

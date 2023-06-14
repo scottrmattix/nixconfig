@@ -14,7 +14,7 @@ $tooltip_fg_color: #ffffff;
 
 .hpanel {
   background: $bg_color;
-  border-width: 1px;
+  border-width: 2px;
   padding-left: 2px;
   padding-right: 2px;
   border-style: solid;
@@ -26,8 +26,11 @@ text {
   padding: 1px;
 }
 
-.panel-timer {
-  font-size: 11px;
+.panel-item{
+  min-width: 30px;
+}
+.panel-clock {
+  font-size: 12px;
 }
 .panel-window {
   background-size: cover;
@@ -39,9 +42,6 @@ text {
 .workspace-btn {
   min-width : 15px;
   padding: 0px 3px;
-}
-.occupied {
- background: shade($bg_color, 1.02);
 }
 .active {
   background: $selected_bg_color;

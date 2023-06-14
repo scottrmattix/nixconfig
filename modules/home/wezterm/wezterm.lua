@@ -6,7 +6,7 @@ if wezterm.config_builder then
 	config = wezterm.config_builder()
 end
 
-config.color_scheme = 'AdventureTime'
+config.color_scheme = 'nord'
 config.font = wezterm.font('JetBrainsMono Nerd Font')
 config.enable_tab_bar = false
 config.window_padding ={

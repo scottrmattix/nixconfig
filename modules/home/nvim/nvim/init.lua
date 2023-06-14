@@ -34,7 +34,7 @@ require("lazy").setup("plugins", {
 	colorschemes = { "darkrose" },
 	dev = {
 		path = vim.env.HOME .. "/Code/NeovimPlugins",
-		patterns = { "water-sucks" },
+		patterns = { "scottm" },
 		fallback = false,
 	},
 	performance = {

@@ -17,11 +17,13 @@
 
     format.commands = {
       #  treefmt.run = "${treefmt} --fail-on-change {staged_files}";
+      temp.run = "echo hello";
     };
 
     checks = {
-      parallel = true;
+      #parallel = true;
       commands = {
+        temp.run = "echo hello";
         #        statix = {
         #          glob = "*.nix";
         #          exclude = "generated.nix|node-packages";

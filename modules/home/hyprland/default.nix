@@ -15,6 +15,7 @@
   };
   home.packages = with pkgs;[
     dunst
+    gnome.pomodoro
   ];
   profiles.waybar.enable = true;
   profiles.eww.enable = true;

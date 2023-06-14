@@ -1,0 +1,4 @@
+
+# nixago: ignore-linked-files
+/lefthook.yml
+/modules/home/nvim/nvfetcher.toml

@@ -18,15 +18,15 @@ upower -m | while  read -r line; do
         BATTERY_ICON=""
         ;;
       *)
-        if [ "$CHARGE_PERCENT" -lt 10 ]; then
+        if [ "$CHARGE_PERCENT" -le 10 ]; then
           BATTERY_ICON=""
-        elif [ "$CHARGE_PERCENT" -lt 25 ]; then
+        elif [ "$CHARGE_PERCENT" -le 40 ]; then
           BATTERY_ICON=""
-        elif [ "$CHARGE_PERCENT" -lt 50 ]; then
+        elif [ "$CHARGE_PERCENT" -le 60 ]; then
           BATTERY_ICON=""
-        elif [ "$CHARGE_PERCENT" -lt 75 ]; then
+        elif [ "$CHARGE_PERCENT" -le 80 ]; then
           BATTERY_ICON=""
-        elif [ "$CHARGE_PERCENT" -lt 100 ]; then
+        elif [ "$CHARGE_PERCENT" -le 100 ]; then
           BATTERY_ICON=""
         fi
         ;;
