@@ -103,7 +103,6 @@ in
     (plugin "folke" "which-key.nvim")
     (plugin "ahmedkhalf" "project.nvim")
     (plugin "samjwill" "nvim-unception")
-    (plugin "folke" "noice.nvim")
 
     # Debugging
     (plugin "mfussenegger" "nvim-dap")
@@ -121,4 +120,7 @@ in
     (plugin "barreiroleo" "ltex_extra.nvim")
 
     (fetch "IndianBoy42" "tree-sitter-just" {isPlugin = false;})
+    #neorg
+    (plugin "nvim-neorg" "neorg")
+    (plugin "nvim-neorg" "neorg-telescope")
   ]

@@ -3,14 +3,13 @@
   lib,
   ...
 }: let
-  inherit (pkgs.stdenv) isDarwin;
+#  inherit (pkgs.stdenv) isDarwin;
 
   genAttrs' = values: f: with lib; listToAttrs (map (v: nameValuePair (f v) v) values);
   sources = pkgs.callPackage _sources/generated.nix {};
 
   # Grammar builder function
   buildGrammar = pkgs.callPackage "${inputs.nixpkgs}/pkgs/development/tools/parsing/tree-sitter/grammar.nix" {};
-
   # Build grammars that were fetched using nvfetcher
   generatedGrammars = with lib;
     mapAttrs (n: v:
