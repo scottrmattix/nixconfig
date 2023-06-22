@@ -19,6 +19,7 @@
     starship.enable = true;
     zellij.enable = true;
     hyprland.enable = true;
+    thunderbird.enable = true;
   };
   programs.direnv = {
     enable = true;

@@ -5,9 +5,12 @@ local keymap = vim.api.nvim_set_keymap
 
 keymap("", "<Space>", "<Nop>", opts)
 vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.maplocalleader = ","
 
 
+
+-- cd to current file
+keymap("n", "<Leader>wd", ":cd %:p:h<CR>:pwd<CR>", opts)
 
 -- window nav
 keymap("n", "<C-h>", "<C-w>h", opts)

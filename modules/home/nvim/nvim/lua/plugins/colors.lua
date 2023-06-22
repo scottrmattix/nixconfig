@@ -17,6 +17,12 @@ local colorizer_spec = use("NvChad/nvim-colorizer.lua", {
   end,
 })
 
+local onenord_spec = use("rmehri01/onenord.nvim" , {
+  config = function()
+    require("onenord").setup()
+  end
+})
+
 local highlight_current_n_spec = use("rktjmp/highlight-current-n.nvim", {
   event = "VeryLazy",
   config = function()
@@ -56,4 +62,5 @@ return {
   colorizer_spec,
   highlight_current_n_spec,
   lush_spec,
+  onenord_spec
 }

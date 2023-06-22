@@ -1,6 +1,11 @@
 local neorg_spec = use("nvim-neorg/neorg", {
-  dependencies = { use("nvim-neorg/neorg-telescope") },
+  dependencies = {
+    use("nvim-lua/plenary.nvim"),
+    use("nvim-neorg/neorg-telescope"),
+    use("nvim-treesitter/nvim-treesitter"),
+  },
   ft = "norg",
+  cmd = { "Neorg" },
 })
 
 neorg_spec.config = function()
@@ -13,17 +18,18 @@ neorg_spec.config = function()
     load = {
       ["core.defaults"] = {},
       ["core.qol.toc"] = {},
+      ["core.looking-glass"] = {},
       ["core.dirman"] = {
         config = {
           workspaces = {
             general = "~/neorg/general",
-            schedule = "~/neorg/schedule",
-            reflections = "~/neorg/reflections",
           },
           autochdir = true,
           index = "index.norg",
+          default_workspace = "general",
         },
       },
+      ["core.summary"] = {},
       ["core.esupports.metagen"] = {
         config = {
           type = "empty",
@@ -47,54 +53,12 @@ neorg_spec.config = function()
         config = {
           journal_folder = "journal",
           strategy = "nested",
-          workspace = "reflections",
-        },
-      },
-      ["core.highlights"] = {
-        config = {
-          todo_items_match_color = "except_undone",
+          workspace = "general",
         },
       },
       ["core.concealer"] = {
         config = {
-          icons = {
-            todo = {
-              done = { icon = "" },
-              pending = { icon = "󰇘" },
-              undone = { icon = " " },
-              uncertain = { icon = "" },
-              on_hold = { icon = "" },
-              cancelled = { icon = "󰜺" },
-              recurring = { icon = "" },
-              urgent = { icon = "" },
-            },
-            heading = {
-              level_1 = { icon = "◈" },
-              level_2 = { icon = " ◇" },
-              level_3 = { icon = "  ◆" },
-              level_4 = { icon = "   ⋄" },
-              level_5 = { icon = "    ❖" },
-              level_6 = { icon = "     ⟡" },
-            },
-            list = {
-              level_1 = { icon = "" },
-              level_2 = { icon = " " },
-              level_3 = { icon = "  " },
-              level_4 = { icon = "   " },
-              level_5 = { icon = "    " },
-              level_6 = { icon = "     " },
-            },
-            definition = {
-              single = { icon = "≡" },
-              multi_prefix = { icon = "󰂺 " },
-              multi_suffix = { icon = "󰂺 " },
-            },
-            footnote = {
-              single = { icon = "󰇈 " },
-              multi_prefix = { icon = "󰮊 " },
-              multi_suffix = { icon = "󰮊 " },
-            },
-          },
+          icon_preset = "diamond",
         },
       },
       ["core.completion"] = {
@@ -135,6 +99,7 @@ neorg_spec.config = function()
                 i = "Invert list type",
                 t = "Toggle list type",
               },
+              m = "Looking glass",
             }, {
               prefix = "<LocalLeader>",
               bufnr = 0,
@@ -182,6 +147,9 @@ neorg_spec.config = function()
 
                   { leader .. "lt", "core.pivot.toggle-list-type" },
                   { leader .. "li", "core.pivot.invert-list-type" },
+
+                  { leader .. "m", "core.looking-glass.magnify-code-block" },
+                  { leader .. "s", "core.summary.summarize" },
                 },
 
                 i = {

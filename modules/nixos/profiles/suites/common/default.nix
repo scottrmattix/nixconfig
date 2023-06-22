@@ -16,17 +16,15 @@
     home-manager
     fd
     nvfetcher
-    steam-run
     taskwarrior
     taskwarrior-tui
     keepassxc
     element-desktop
     flameshot
-    obsidian
     zathura
     socat
     jq
-    gdk-pixbuf
+    nix-index
   ];
   profiles.suites.core.enable = true;
   profiles.services = {

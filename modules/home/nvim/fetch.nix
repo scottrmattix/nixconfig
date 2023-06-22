@@ -81,6 +81,7 @@ in
     (plugin "sindrets" "diffview.nvim")
 
     # Appearance/Theming
+    (plugin "rmehri01" "onenord.nvim")
     (plugin "nvim-treesitter" "nvim-treesitter")
     (plugin "nvim-treesitter" "nvim-treesitter-textobjects")
     (plugin "nvim-treesitter" "nvim-treesitter-refactor")
@@ -123,4 +124,9 @@ in
     #neorg
     (plugin "nvim-neorg" "neorg")
     (plugin "nvim-neorg" "neorg-telescope")
-  ]
+    (fetch "nvim-neorg" "tree-sitter-norg" {
+      branch = "dev";
+      isPlugin = false;
+    })
+    (fetch "nvim-neorg" "tree-sitter-norg-meta" {isPlugin = false;})
+]

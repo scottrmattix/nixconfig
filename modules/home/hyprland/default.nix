@@ -17,6 +17,5 @@
     dunst
     gnome.pomodoro
   ];
-  profiles.waybar.enable = true;
   profiles.eww.enable = true;
 }

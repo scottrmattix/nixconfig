@@ -1,0 +1,8 @@
+(defwidget panel_cpu []
+(box
+  :class "panel-item"
+  :space-evenly false
+    (label
+    :limit-width 10
+    :text "${round(EWW_CPU.avg, 1)}%  ")
+  ))

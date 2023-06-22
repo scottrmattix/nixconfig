@@ -1,0 +1,8 @@
+(defvar to_GB 1000000000)
+(defwidget panel_mem []
+(box
+  :class "panel-item"
+  :space-evenly false
+    (label
+    :text "${round(EWW_RAM.used_mem/to_GB,1)}/${round(EWW_RAM.total_mem/to_GB, 1)}  ")
+  ))
