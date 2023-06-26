@@ -59,6 +59,7 @@ local on_attach = function(client, bufnr)
 
   wk.register(keymaps, {
     buffer = bufnr,
+    prefix = "<Leader>",
   })
 end
 

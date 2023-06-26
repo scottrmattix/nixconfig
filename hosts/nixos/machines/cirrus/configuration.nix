@@ -46,8 +46,6 @@
     extraGroups = ["networkmanager" "wheel" "audio" "jackaudio" "video"];
     packages = with pkgs; [
       firefox
-      wezterm
-      starship
       tor-browser-bundle-bin
     ];
     shell = pkgs.zsh;
@@ -57,10 +55,12 @@
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
-    neovim
+    amdgpu_top
   ];
   environment.pathsToLink = ["/share/zsh"];
   programs.zsh.enable = true;
+  programs.neovim.defaultEditor = true;
+  programs.neovim.enable = true;
 
   profiles = {
     apps = {
@@ -82,7 +82,7 @@
   };
 
   networking.firewall.allowedTCPPorts = [
-  8080
+    8080
   ];
 
   system.stateVersion = "22.11";

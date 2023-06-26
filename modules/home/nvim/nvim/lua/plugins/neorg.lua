@@ -99,7 +99,7 @@ neorg_spec.config = function()
                 i = "Invert list type",
                 t = "Toggle list type",
               },
-              m = "Looking glass",
+              o = "Looking glass",
             }, {
               prefix = "<LocalLeader>",
               bufnr = 0,
@@ -148,8 +148,7 @@ neorg_spec.config = function()
                   { leader .. "lt", "core.pivot.toggle-list-type" },
                   { leader .. "li", "core.pivot.invert-list-type" },
 
-                  { leader .. "m", "core.looking-glass.magnify-code-block" },
-                  { leader .. "s", "core.summary.summarize" },
+                  { leader .. "o", "core.looking-glass.magnify-code-block" },
                 },
 
                 i = {

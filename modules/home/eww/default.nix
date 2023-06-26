@@ -13,6 +13,5 @@
     libnotify
     socat
     jq
-    luajit
   ];
 }
