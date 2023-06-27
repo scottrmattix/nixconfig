@@ -62,7 +62,7 @@ in
     (plugin "folke" "trouble.nvim")
     (plugin "numToStr" "FTerm.nvim")
     (plugin "MunifTanjim" "nui.nvim")
-    (plugin "j-hui" "fidget.nvim")
+    (fetch "j-hui" "fidget.nvim" {branch = "legacy";})
 
     # Text editing assistance/annotations
     (plugin "NMAC427" "guess-indent.nvim")
@@ -129,4 +129,4 @@ in
       isPlugin = false;
     })
     (fetch "nvim-neorg" "tree-sitter-norg-meta" {isPlugin = false;})
-]
+  ]

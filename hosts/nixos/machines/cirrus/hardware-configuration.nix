@@ -12,10 +12,21 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod" "amdgpu"];
+  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod"];
   boot.initrd.kernelModules = ["amdgpu"];
-  boot.kernelModules = ["kvm-amd" "amdgpu"];
+  boot.kernelModules = ["kvm-amd"];
   boot.extraModulePackages = [];
+  hardware.opengl = {
+    enable = true;
+    driSupport = true;
+    driSupport32Bit = true;
+    extraPackages = with pkgs; [
+      amdvlk
+    ];
+    extraPackages32 = with pkgs; [
+      driversi686Linux.amdvlk
+    ];
+  };
 
   fileSystems."/" = {
     device = "/dev/disk/by-uuid/5b30a16c-9c8e-431c-9afc-9c4740f02433";
