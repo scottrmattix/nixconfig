@@ -8,7 +8,6 @@
   ...
 }: {
   programs.nix-ld.enable = true;
-  programs.light.enable = true;
   environment.systemPackages = with pkgs; [
     htop
     neofetch
@@ -25,6 +24,8 @@
     socat
     jq
     nix-index
+    lsof
+    libva-utils
   ];
   profiles.suites.core.enable = true;
   profiles.services = {

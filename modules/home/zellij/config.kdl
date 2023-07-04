@@ -1,0 +1,31 @@
+pane_frames false
+default_layout "compact"
+copy_command "wl-copy"
+theme "nord"
+keybinds {
+  unbind "Alt Left"
+  unbind "Alt Right"
+  unbind "Alt Down"
+  unbind "Alt Up"
+  normal  {
+    bind "Alt h" { MoveFocusOrTab "Left"; }
+    bind "Alt l" { MoveFocusOrTab "Right"; }
+    bind "Alt j" { MoveFocusOrTab "Down"; }
+    bind "Alt k" { MoveFocusOrTab "Up"; }
+  }
+}
+themes {
+  nord {
+    bg "#2E3440"
+    black "#3B4252"
+    blue "#81A1C1"
+    cyan "#88C0D0"
+    fg "#D8DEE9"
+    green "#A3BE8C"
+    magenta "#B48EAD"
+    orange "#D08770"
+    red "#BF616A"
+    white "#E5E9F0"
+    yellow "#EBCB8B"
+  }
+}

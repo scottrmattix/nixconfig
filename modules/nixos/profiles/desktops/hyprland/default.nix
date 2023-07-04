@@ -4,13 +4,13 @@
   lib,
   ...
 }: {
-  profiles= {
+  profiles = {
     desktops.displaymanagers.gdm.enable = true;
     system.wayland.enable = true;
   };
   services.xserver.displayManager.gdm = {
-      wayland = true;
-    };
+    wayland = true;
+  };
   environment.systemPackages = with pkgs; [
     wofi
     wlogout
@@ -19,6 +19,7 @@
     wlr-randr
   ];
   xdg.portal.wlr.enable = true;
+  programs.light.enable = true;
   programs.hyprland = {
     enable = true;
     xwayland.enable = true;
