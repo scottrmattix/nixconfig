@@ -17,9 +17,6 @@ in {
         };
         nur = inputs.nur;
         fcitx-engines = prev.fcitx5;
-        waybar = prev.waybar.overrideAttrs (oldAttrs: {
-            mesonFlags = oldAttrs.mesonFlags ++ [ "-Dexperimental=true" ];
-        });
         eww-wayland = inputs.eww.packages.x86_64-linux.eww-wayland;
       };
     };

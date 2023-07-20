@@ -18,7 +18,7 @@
       l = "ls -CF";
     };
     initExtra = ''
-    unsetopt beep
+      unsetopt beep
     '';
   };
   programs.dircolors = {

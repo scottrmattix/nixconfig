@@ -4,7 +4,7 @@
   lib,
   ...
 }: {
-  environment.systemPackages= with pkgs; [
-  zynaddsubfx
+  environment.systemPackages = with pkgs; [
+    zynaddsubfx
   ];
 }

@@ -20,13 +20,13 @@ $tooltip_fg_color: #ffffff;
   border-style: solid;
   border-radius: 2px;
   border-color: $fg_color;
-  color:  $text_color;
+  color: $text_color;
 }
 text {
   padding: 1px;
 }
 
-.panel-item{
+.panel-item {
   min-width: 30px;
 }
 .panel-clock {
@@ -40,7 +40,7 @@ text {
 }
 
 .workspace-btn {
-  min-width : 15px;
+  min-width: 15px;
   padding: 0px 3px;
 }
 .active {

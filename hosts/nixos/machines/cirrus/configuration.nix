@@ -17,6 +17,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "cirrus"; # Define your hostname.
+  services.opensnitch.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -43,7 +44,7 @@
   users.users.scottm = {
     isNormalUser = true;
     description = "Scott";
-    extraGroups = ["networkmanager" "wheel" "audio" "jackaudio" "video"];
+    extraGroups = ["networkmanager" "wheel" "audio" "jackaudio" "video" "docker"];
     packages = with pkgs; [
       firefox
       tor-browser-bundle-bin
@@ -63,6 +64,10 @@
   programs.zsh.enable = true;
   programs.neovim.defaultEditor = true;
   programs.neovim.enable = true;
+  virtualisation.docker = {
+    enable = true;
+    storageDriver = "btrfs";
+  };
 
   profiles = {
     apps = {
@@ -84,7 +89,6 @@
   };
 
   networking.firewall.allowedTCPPorts = [
-    8080
   ];
 
   system.stateVersion = "22.11";

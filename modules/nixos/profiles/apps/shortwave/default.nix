@@ -4,7 +4,7 @@
   lib,
   ...
 }: {
-  environment.systemPackages= with pkgs; [
-  shortwave
+  environment.systemPackages = with pkgs; [
+    shortwave
   ];
 }

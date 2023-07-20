@@ -9,6 +9,7 @@
 }: {
   programs.nix-ld.enable = true;
   environment.systemPackages = with pkgs; [
+    file
     htop
     neofetch
     pandoc
@@ -25,7 +26,9 @@
     jq
     nix-index
     lsof
-    libva-utils
+    logseq
+    poppler_utils
+    steam-run
   ];
   profiles.suites.core.enable = true;
   profiles.services = {

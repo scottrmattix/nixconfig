@@ -7,7 +7,7 @@
   programs.thunderbird = {
     enable = true;
     profiles = {
-      "scottm" ={
+      "scottm" = {
         isDefault = true;
       };
     };
