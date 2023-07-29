@@ -19,6 +19,7 @@
     };
     nvfetcher = {
       url = "github:berberman/nvfetcher";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     nixago = {
       url = "github:nix-community/nixago";
@@ -26,12 +27,15 @@
     };
     treefmt = {
       url = "github:numtide/treefmt-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     neovim-nightly-overlay = {
       url = "github:nix-community/neovim-nightly-overlay";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     hyprland = {
       url = "github:hyprwm/Hyprland";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
     eww = {
       url = "github:elkowar/eww";

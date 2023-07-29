@@ -9,7 +9,7 @@
     defaultKeymap = "viins";
     enableAutosuggestions = true;
     enableCompletion = true;
-    enableSyntaxHighlighting = true;
+    syntaxHighlighting.enable = true;
     shellAliases = {
       ls = "ls --color=auto";
       grep = "rg";

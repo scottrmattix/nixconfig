@@ -18,7 +18,6 @@
     swaylock
     wlr-randr
   ];
-  xdg.portal.wlr.enable = true;
   programs.light.enable = true;
   programs.hyprland = {
     enable = true;

@@ -17,7 +17,7 @@ in {
         };
         nur = inputs.nur;
         fcitx-engines = prev.fcitx5;
-        eww-wayland = inputs.eww.packages.x86_64-linux.eww-wayland;
+        # eww-wayland = inputs.eww.packages.x86_64-linux.eww-wayland;
       };
     };
   };
