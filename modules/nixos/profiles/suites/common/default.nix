@@ -8,6 +8,7 @@
   ...
 }: {
   programs.nix-ld.enable = true;
+  documentation.dev.enable = true;
   environment.systemPackages = with pkgs; [
     file
     htop
@@ -16,11 +17,10 @@
     home-manager
     fd
     nvfetcher
+    keepassxc
     taskwarrior
     taskwarrior-tui
-    keepassxc
     element-desktop
-    flameshot
     zathura
     socat
     jq
@@ -29,6 +29,8 @@
     logseq
     poppler_utils
     steam-run
+    man-pages
+    man-pages-posix
   ];
   profiles.suites.core.enable = true;
   profiles.services = {

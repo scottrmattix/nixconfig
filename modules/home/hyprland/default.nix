@@ -15,7 +15,6 @@
   };
   home.packages = with pkgs; [
     dunst
-    gnome.pomodoro
   ];
   profiles.eww.enable = true;
 }

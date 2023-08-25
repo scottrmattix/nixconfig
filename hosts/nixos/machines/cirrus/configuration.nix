@@ -17,7 +17,7 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "cirrus"; # Define your hostname.
-  services.opensnitch.enable = true;
+  # services.opensnitch.enable = true;
 
   # Set your time zone.
   time.timeZone = "America/New_York";
@@ -52,8 +52,6 @@
     shell = pkgs.zsh;
   };
 
-  # List packages installed in system profile. To search, run:
-  # $ nix search wget
   environment.systemPackages = with pkgs; [
     vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
     amdgpu_top

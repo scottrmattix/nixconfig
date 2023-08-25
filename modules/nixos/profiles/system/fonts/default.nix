@@ -8,7 +8,7 @@
   ...
 }: {
   fonts = {
-    fonts = with pkgs; [
+    packages = with pkgs; [
       noto-fonts
       noto-fonts-cjk
       noto-fonts-emoji
@@ -16,6 +16,6 @@
       (nerdfonts.override {fonts = ["JetBrainsMono"];})
     ];
     fontDir.enable = true;
-    enableDefaultFonts = true;
+    enableDefaultPackages = true;
   };
 }

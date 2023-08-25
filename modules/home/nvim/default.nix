@@ -87,7 +87,7 @@ in
         extraPackages = with pkgs; [
           # Language servers
           pyright
-          ccls
+          # ccls
           gopls
           ltex-ls
           lua-language-server
@@ -96,7 +96,7 @@ in
           nodePackages.vscode-langservers-extracted
           clang-tools
           rust-analyzer
-          stable.nil
+          nil
 
           # null-ls sources
           alejandra

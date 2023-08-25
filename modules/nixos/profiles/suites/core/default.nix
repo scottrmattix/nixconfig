@@ -13,5 +13,6 @@
     ripgrep
     curl
     vim
+    binutils
   ];
 }

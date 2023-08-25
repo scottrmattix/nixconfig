@@ -46,6 +46,9 @@
   ];
 
   services = {
+    fstrim = {
+      enable = true;
+    };
     logind = {
       lidSwitch = "suspend";
       lidSwitchExternalPower = "suspend";
