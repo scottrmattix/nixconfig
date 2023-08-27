@@ -14,6 +14,10 @@
       experimental-features = ["nix-command" "flakes"];
       auto-optimise-store = true;
     };
+    registry.nixpkgs.flake = inputs.nixpkgs;
+    nixPath = [
+      "nixpkgs=${inputs.nixpkgs}"
+    ];
   };
   nixpkgs = {
     config = {
