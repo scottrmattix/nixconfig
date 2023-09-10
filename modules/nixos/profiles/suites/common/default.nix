@@ -31,6 +31,7 @@
     steam-run
     man-pages
     man-pages-posix
+    just
   ];
   profiles.suites.core.enable = true;
   profiles.services = {

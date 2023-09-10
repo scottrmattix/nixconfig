@@ -4,7 +4,12 @@
   config,
   pkgs,
   ...
-}: {
+}: let
+  perlEnv = pkgs.perl.withPackages (p:
+    with p; [
+      CGI
+    ]);
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
@@ -39,6 +44,35 @@
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.httpd = {
+    enable = true;
+    extraConfig = ''
+      <Location "/server-status">
+          SetHandler server-status
+          Require host example.com
+          Require ip 127
+      </Location>
+      <Location "/server-info">
+          SetHandler server-info
+      </Location>
+      ProxyPass "/acm" "http://acm.cs.virginia.edu"
+      ScriptAlias "/cgi-bin/" "/cgi-bin/"
+      <Directory "/cgi-bin">
+        AllowOverride None
+        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
+        Require all granted
+      </Directory>
+      SetEnv PATH "/run/wrappers/bin:/var/empty/.nix-profile/bin:/etc/profiles/per-user/wwwrun/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
+    '';
+    virtualHosts = {
+      localhost = {
+        documentRoot = "/webroot";
+      };
+    };
+  };
+  users.users.wwwrun = {
+    packages = with pkgs; [bash perlEnv];
+  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.scottm = {
@@ -46,6 +80,7 @@
     description = "Scott";
     extraGroups = ["networkmanager" "wheel" "audio" "jackaudio" "video" "docker"];
     packages = with pkgs; [
+      perlEnv
       firefox
       tor-browser-bundle-bin
     ];

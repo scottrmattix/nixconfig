@@ -11,9 +11,9 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    nur = {
-      url = "github:nix-community/NUR";
-    };
+    # nur = {
+    #   url = "github:nix-community/NUR";
+    # };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
@@ -33,10 +33,10 @@
       url = "github:nix-community/neovim-nightly-overlay";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    hyprland = {
-      url = "github:hyprwm/Hyprland";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # hyprland = {
+    #   url = "github:hyprwm/Hyprland";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     eww = {
       url = "github:elkowar/eww";
     };
@@ -90,7 +90,7 @@
               nvfetcher.overlays.default
               self.overlays.default
               self.overlays.flakepkgs
-              inputs.neovim-nightly-overlay.overlay
+              # inputs.neovim-nightly-overlay.overlay
             ];
             config.allowUnfree = true;
           };

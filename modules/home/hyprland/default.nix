@@ -6,9 +6,9 @@
 }: {
   wayland.windowManager.hyprland = {
     enable = true;
-    package = null;
+    # package = null;
     systemdIntegration = true;
-    recommendedEnvironment = true;
+    # recommendedEnvironment = true;
   };
   xdg.configFile."hypr/hyprland.conf" = {
     source = ./hyprland.conf;

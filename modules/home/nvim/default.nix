@@ -81,8 +81,6 @@ in
         vimAlias = true;
 
         withPython3 = true;
-        withRuby = false;
-        withNodeJs = false;
 
         extraPackages = with pkgs; [
           # Language servers
@@ -94,6 +92,7 @@ in
           nodePackages.bash-language-server
           nodePackages.graphql-language-service-cli
           nodePackages.vscode-langservers-extracted
+          nodePackages.typescript-language-server
           clang-tools
           rust-analyzer
           nil

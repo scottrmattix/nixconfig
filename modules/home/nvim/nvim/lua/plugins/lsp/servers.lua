@@ -17,6 +17,7 @@ local servers = {
   "nil_ls",
   -- "nixd",
   "zls",
+  "tsserver",
 }
 
 local server_configs = {
