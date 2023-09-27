@@ -1,25 +1,25 @@
 local options = {
-	relativenumber = true,
-	number = true,
+  relativenumber = true,
+  number = true,
+  showmatch = true,
 
-	showmatch = true,
-	incsearch = true,
-	hlsearch = false,
+  incsearch = true,
+  hlsearch = false,
 
-	mouse = "a",
+  mouse = "a",
 
-	softtabstop = 2,
-	shiftwidth = 2,
-	tabstop = 4,
-	smarttab = true,
-	autoindent = true,
-	expandtab = true,
+  softtabstop = 2,
+  shiftwidth = 2,
+  tabstop = 4,
+  smarttab = true,
+  autoindent = true,
+  expandtab = true,
 
-	updatetime = 50,
+  updatetime = 50,
 
-	scrolloff = 8,
+  scrolloff = 8,
 }
 
 for k, v in pairs(options) do
-	vim.opt[k] = v
+  vim.opt[k] = v
 end

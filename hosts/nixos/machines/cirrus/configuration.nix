@@ -56,6 +56,8 @@ in {
           SetHandler server-info
       </Location>
       ProxyPass "/acm" "http://acm.cs.virginia.edu"
+      ProxyPass "/api" "http://127.0.0.1:3000"
+      ProxyPassReverse "/api" "http://127.0.0.1:3000"
       ScriptAlias "/cgi-bin/" "/cgi-bin/"
       <Directory "/cgi-bin">
         AllowOverride None
