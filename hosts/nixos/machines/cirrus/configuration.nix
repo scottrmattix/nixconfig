@@ -44,48 +44,18 @@ in {
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
-  services.httpd = {
-    enable = true;
-    extraConfig = ''
-      <Location "/server-status">
-          SetHandler server-status
-          Require host example.com
-          Require ip 127
-      </Location>
-      <Location "/server-info">
-          SetHandler server-info
-      </Location>
-      ProxyPass "/acm" "http://acm.cs.virginia.edu"
-      ProxyPass "/api" "http://127.0.0.1:3000"
-      ProxyPassReverse "/api" "http://127.0.0.1:3000"
-      ScriptAlias "/cgi-bin/" "/cgi-bin/"
-      <Directory "/cgi-bin">
-        AllowOverride None
-        Options +ExecCGI -MultiViews +SymLinksIfOwnerMatch
-        Require all granted
-      </Directory>
-      SetEnv PATH "/run/wrappers/bin:/var/empty/.nix-profile/bin:/etc/profiles/per-user/wwwrun/bin:/nix/var/nix/profiles/default/bin:/run/current-system/sw/bin"
-    '';
-    virtualHosts = {
-      localhost = {
-        documentRoot = "/webroot";
-      };
-    };
-  };
-  users.users.wwwrun = {
-    packages = with pkgs; [bash perlEnv];
-  };
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.scottm = {
     isNormalUser = true;
     description = "Scott";
-    extraGroups = ["networkmanager" "wheel" "audio" "jackaudio" "video" "docker"];
+    extraGroups = ["networkmanager" "wheel" "audio" "jackaudio" "video" "docker" "libvirtd"];
     packages = with pkgs; [
       perlEnv
       firefox
       tor-browser-bundle-bin
     ];
+    initialHashedPassword = "";
     shell = pkgs.zsh;
   };
 
@@ -119,6 +89,7 @@ in {
       power.enable = true;
       wireless.enable = true;
       sound.enable = true;
+      virtualization.enable = true;
     };
     nix.enable = true;
   };

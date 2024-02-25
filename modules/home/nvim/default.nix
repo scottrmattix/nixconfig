@@ -85,7 +85,7 @@ in
         extraPackages = with pkgs; [
           # Language servers
           pyright
-          # ccls
+          # python3.pkgs.python-lsp-server
           gopls
           ltex-ls
           lua-language-server

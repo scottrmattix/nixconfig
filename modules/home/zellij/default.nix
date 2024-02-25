@@ -6,9 +6,13 @@
 }: {
   programs.zellij = {
     enable = true;
-    # enableZshIntegration = true;
+    enableZshIntegration = true;
   };
-  xdg.configFile."zellij/config.kdl" = {
-    source = ./config.kdl;
+  home.packages = with pkgs; [
+    skim
+  ];
+  xdg.configFile = {
+    "zellij/config.kdl".source = ./config.kdl;
+    "zellij/layouts".source = ./layouts;
   };
 }

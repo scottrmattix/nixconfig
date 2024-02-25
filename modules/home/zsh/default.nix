@@ -21,6 +21,10 @@
       unsetopt beep
     '';
   };
+
+  home.packages = with pkgs; [
+    ripgrep
+  ];
   programs.dircolors = {
     enable = true;
   };

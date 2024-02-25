@@ -1,16 +1,28 @@
 pane_frames false
 copy_command "wl-copy"
 theme "nord"
+ui {
+  pane_frames{
+    hide_session_name true
+  }
+}
 keybinds {
-  unbind "Alt Left"
-  unbind "Alt Right"
-  unbind "Alt Down"
-  unbind "Alt Up"
+  unbind "Alt Left" "Alt Up"
   normal  {
+    bind "Alt Right" { NewPane "Right"; }
+    bind "Alt Down" { NewPane "Down"; }
     bind "Alt h" { MoveFocusOrTab "Left"; }
     bind "Alt l" { MoveFocusOrTab "Right"; }
-    bind "Alt j" { MoveFocusOrTab "Down"; }
-    bind "Alt k" { MoveFocusOrTab "Up"; }
+    bind "Alt j" { MoveFocus "Down"; }
+    bind "Alt k" { MoveFocus "Up"; }
+    bind "Alt q" { CloseFocus ; }
+  }
+  move {
+    unbind "Left" "Right" "Down" "Up"
+    bind "h" { MovePane "Left"; }
+    bind "l" { MovePane "Right"; }
+    bind "j" { MovePane "Down"; }
+    bind "k" { MovePane "Up"; }
   }
 }
 themes {

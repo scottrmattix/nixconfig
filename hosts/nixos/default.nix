@@ -29,7 +29,7 @@
               users.mutableUsers = true;
               nixpkgs = {
                 inherit pkgs;
-                config.allowUnfree = true;
+                # config.allowUnfree = true;
               };
             }
           ]
