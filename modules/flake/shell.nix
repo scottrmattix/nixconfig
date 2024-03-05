@@ -9,12 +9,8 @@
       inherit (inputs) nixago;
 
       nvfetcherConfigs = import ./nixago/nvfetcher.nix {inherit pkgs;};
-      lefthookConfig = import ./nixago/lefthook.nix {inherit config pkgs;};
       nixagoConfigs =
-        nvfetcherConfigs
-        ++ [
-          lefthookConfig
-        ];
+        nvfetcherConfigs;
     in {
       default = pkgs.mkShell {
         name = "nix-shell";
@@ -30,7 +26,6 @@
           ++ (builtins.attrValues config.treefmt.build.programs);
         shellHook = ''
           ${(nixago.lib.${system}.makeAll nixagoConfigs).shellHook}
-          ${pkgs.lefthook}/bin/lefthook install
         '';
       };
 
