@@ -31,16 +31,16 @@
     nix-index
     lsof
     logseq
-    poppler_utils
     steam-run
     man-pages
     man-pages-posix
     just
-    stable.mongodb-compass
   ];
-  profiles.suites.core.enable = true;
-  profiles.services = {
-    openssh.enable = true;
+  profiles = {
+    suites.core.enable = true;
+    services = {
+      openssh.enable = true;
+    };
+    system.fonts.enable = true;
   };
-  profiles.system.fonts.enable = true;
 }

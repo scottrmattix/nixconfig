@@ -5,15 +5,12 @@
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
     stable = {
-      url = "github:nixos/nixpkgs/nixos-22.11";
+      url = "github:nixos/nixpkgs/nixos-23.11";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    # nur = {
-    #   url = "github:nix-community/NUR";
-    # };
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
@@ -29,17 +26,13 @@
       url = "github:numtide/treefmt-nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    neovim-nightly-overlay = {
-      url = "github:nix-community/neovim-nightly-overlay";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    # hyprland = {
-    #   url = "github:hyprwm/Hyprland";
+    # neovim-nightly-overlay = {
+    #   url = "github:nix-community/neovim-nightly-overlay";
     #   inputs.nixpkgs.follows = "nixpkgs";
     # };
-    eww = {
-      url = "github:elkowar/eww";
-    };
+    # eww = {
+    #   url = "github:elkowar/eww";
+    # };
   };
 
   outputs = {
@@ -52,7 +45,6 @@
     nvfetcher,
     nixago,
     treefmt,
-    eww,
     ...
   } @ inputs: let
     lib = import ./lib inputs;

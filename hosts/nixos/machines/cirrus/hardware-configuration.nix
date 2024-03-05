@@ -12,22 +12,25 @@
     (modulesPath + "/installer/scan/not-detected.nix")
   ];
 
-  boot.initrd.availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod"];
-  boot.initrd.kernelModules = ["amdgpu"];
-  boot.kernelModules = ["kvm-amd"];
-  boot.extraModulePackages = [];
-  hardware.opengl = {
-    enable = true;
-    driSupport = true;
-    driSupport32Bit = true;
-    extraPackages = with pkgs; [
-      # amdvlk
-      vaapiVdpau
-      libvdpau-va-gl
-    ];
-    extraPackages32 = with pkgs; [
-      # driversi686Linux.amdvlk
-    ];
+  boot = {
+    initrd.availableKernelModules = ["nvme" "xhci_pci" "usb_storage" "sd_mod"];
+    initrd.kernelModules = ["amdgpu"];
+    kernelModules = ["kvm-amd"];
+    extraModulePackages = [];
+  };
+  hardware = {
+    opengl = {
+      enable = true;
+      driSupport = true;
+      driSupport32Bit = true;
+      extraPackages = with pkgs; [
+        vaapiVdpau
+        libvdpau-va-gl
+      ];
+    };
+    cpu.amd.updateMicrocode = true;
+    enableRedistributableFirmware = true;
+    enableAllFirmware = true;
   };
 
   fileSystems."/" = {
@@ -65,7 +68,4 @@
   # networking.interfaces.enp1s0f0.useDHCP = lib.mkDefault true;
 
   nixpkgs.hostPlatform = lib.mkDefault "x86_64-linux";
-  hardware.cpu.amd.updateMicrocode = true;
-  hardware.enableRedistributableFirmware = true;
-  hardware.enableAllFirmware = true;
 }

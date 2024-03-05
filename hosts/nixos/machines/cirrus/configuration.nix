@@ -5,10 +5,6 @@
   pkgs,
   ...
 }: let
-  perlEnv = pkgs.perl.withPackages (p:
-    with p; [
-      CGI
-    ]);
 in {
   imports = [
     # Include the results of the hardware scan.
@@ -16,10 +12,14 @@ in {
   ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-  boot.loader.efi.efiSysMountPoint = "/boot/efi";
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot = {
+    loader = {
+      systemd-boot.enable = true;
+      efi.canTouchEfiVariables = true;
+      efi.efiSysMountPoint = "/boot/efi";
+    };
+    kernelPackages = pkgs.linuxPackages_latest;
+  };
 
   networking.hostName = "cirrus"; # Define your hostname.
   # services.opensnitch.enable = true;
@@ -51,7 +51,6 @@ in {
     description = "Scott";
     extraGroups = ["networkmanager" "wheel" "audio" "jackaudio" "video" "docker" "libvirtd"];
     packages = with pkgs; [
-      perlEnv
       firefox
       tor-browser-bundle-bin
     ];
@@ -66,9 +65,11 @@ in {
     hwinfo
   ];
   environment.pathsToLink = ["/share/zsh"];
-  programs.zsh.enable = true;
-  programs.neovim.defaultEditor = true;
-  programs.neovim.enable = true;
+  programs = {
+    zsh.enable = true;
+    neovim.defaultEditor = true;
+    neovim.enable = true;
+  };
   virtualisation.docker = {
     enable = true;
     storageDriver = "btrfs";

@@ -6,8 +6,10 @@
 }: {
   services.xserver = {
     enable = true;
-    layout = "us";
-    xkbVariant = "";
+    xkb = {
+      variant = "";
+      layout = "us";
+    };
     libinput = {
       enable = true;
       mouse = {
