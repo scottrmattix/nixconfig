@@ -90,8 +90,6 @@ in
           ltex-ls
           lua-language-server
           nodePackages.bash-language-server
-          nodePackages.graphql-language-service-cli
-          nodePackages.vscode-langservers-extracted
           nodePackages.typescript-language-server
           clang-tools
           rust-analyzer

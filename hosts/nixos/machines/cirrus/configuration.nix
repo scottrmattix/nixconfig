@@ -44,6 +44,7 @@ in {
 
   # Enable CUPS to print documents.
   services.printing.enable = true;
+  services.fwupd.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users.users.scottm = {

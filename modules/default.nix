@@ -4,7 +4,7 @@
   lib,
   ...
 }: let
-  inherit (self.lib) importModulesWith genModsFrom;
+  inherit (self.lib) genModsFrom;
 in {
   flake = {
     nixosModules = genModsFrom {inherit inputs self;} "profiles" ./nixos/profiles;

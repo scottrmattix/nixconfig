@@ -20,6 +20,7 @@
     zellij.enable = true;
     hyprland.enable = true;
     thunderbird.enable = true;
+    helix.enable = true;
   };
   programs.direnv = {
     enable = true;
