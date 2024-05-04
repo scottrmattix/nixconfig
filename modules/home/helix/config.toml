@@ -3,16 +3,30 @@ theme = "nord"
 [editor]
 line-number = "relative"
 idle-timeout = 50
+completion-timeout = 50
+auto-format = true
 
 [editor.statusline]
-left = ["mode", "spinner"]
-center = ["file-name"]
-right = ["diagnostics", "selections", "position", "file-encoding", "file-line-ending", "file-type"]
+left = ["mode", "spinner", "separator", "version-control"]
+center = ["file-name", "file-modification-indicator"]
+right = [ "position", "position-percentage", "file-type"]
 separator = "|"
-mode.normal = "NORMAL"
-mode.insert = "INSERT"
-mode.select = "SELECT"
+mode.normal = "NOR"
+mode.insert = "INS"
+mode.select = "SEL"
 
 [editor.indent-guides]
 render = true
 character = "╎"
+
+[editor.search]
+smart-case = false
+
+[editor.whitespace.render]
+newline = "all"
+
+[editor.whitespace.characters]
+# space = "·"
+# nbsp = "⍽"
+# nnbsp = "␣"
+newline = "⏎"

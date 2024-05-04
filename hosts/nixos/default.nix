@@ -21,7 +21,6 @@
         };
         modules = with inputs;
           [
-            nur.nixosModules.nur
             home-manager.nixosModules.home-manager
             (import configuration)
             {
@@ -41,6 +40,7 @@ in {
   flake = {
     nixosConfigurations = with generatedHosts; {
       cirrus = cirrus {};
+      cumulus = cumulus {};
     };
   };
 }

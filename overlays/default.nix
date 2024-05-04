@@ -11,11 +11,10 @@ in {
       default = final: prev: let
         system = prev.system;
       in {
-        stable = import inputs.stable {
+        unstable = import inputs.unstable {
           inherit system;
           config.allowUnfree = true;
         };
-        nur = inputs.nur;
         fcitx-engines = prev.fcitx5;
         # eww-wayland = inputs.eww.packages.x86_64-linux.eww-wayland;
       };

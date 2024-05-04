@@ -1,6 +1,6 @@
 pane_frames false
-copy_command "wl-copy"
 theme "nord"
+session_serialization false
 ui {
   pane_frames{
     hide_session_name true

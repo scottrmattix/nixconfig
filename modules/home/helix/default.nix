@@ -6,17 +6,32 @@
 }: {
   programs.helix = {
     enable = true;
-    extraPackages = with pkgs;[
-          clang-tools
-          rust-analyzer
-          nil
-          pyright
-          gopls
-          ltex-ls
-          lua-language-server
-          nodePackages.bash-language-server
-          nodePackages.typescript-language-server
+    package = pkgs.unstable.helix;
+    extraPackages = with pkgs; [
+      clang-tools
+      rust-analyzer
+      nil
+      pyright
+      gopls
+      ltex-ls
+      lua-language-server
+      nodePackages.bash-language-server
+      nodePackages.typescript-language-server
+      taplo
+      alejandra
     ];
+    languages = {
+      language = with pkgs; [
+        {
+          name = "nix";
+          auto-format = true;
+          formatter = {
+            command = "${alejandra}/bin/alejandra";
+            args = ["-q" "-q" "-"];
+          };
+        }
+      ];
+    };
   };
   xdg.configFile = {
     "helix/config.toml".source = ./config.toml;

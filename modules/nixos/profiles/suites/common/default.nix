@@ -7,8 +7,6 @@
   pkgs,
   ...
 }: {
-  services.wg-netmanager.enable = true;
-  networking.wireguard.enable = true;
   programs.nix-ld = {
     enable = true;
   };
@@ -22,9 +20,6 @@
     fd
     nvfetcher
     keepassxc
-    taskwarrior
-    taskwarrior-tui
-    element-desktop
     zathura
     socat
     jq

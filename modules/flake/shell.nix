@@ -21,7 +21,6 @@
             node2nix
             nodePackages.prettier
             nvfetcher
-            home-manager
           ]
           ++ (builtins.attrValues config.treefmt.build.programs);
         shellHook = ''

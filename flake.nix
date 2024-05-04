@@ -2,10 +2,10 @@
   description = "Nix mono flake config for NixOS and Home-Manager";
   inputs = {
     nixpkgs = {
-      url = "github:nixos/nixpkgs/nixos-unstable";
-    };
-    stable = {
       url = "github:nixos/nixpkgs/nixos-23.11";
+    };
+    unstable = {
+      url = "github:nixos/nixpkgs/nixos-unstable";
     };
     home-manager = {
       url = "github:nix-community/home-manager";
@@ -38,9 +38,8 @@
   outputs = {
     self,
     nixpkgs,
-    stable,
+    unstable,
     home-manager,
-    nur,
     flake-parts,
     nvfetcher,
     nixago,
