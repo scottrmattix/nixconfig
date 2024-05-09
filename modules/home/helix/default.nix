@@ -17,6 +17,7 @@
       lua-language-server
       nodePackages.bash-language-server
       nodePackages.typescript-language-server
+      nodePackages.svelte-language-server
       taplo
       alejandra
     ];
@@ -28,6 +29,14 @@
           formatter = {
             command = "${alejandra}/bin/alejandra";
             args = ["-q" "-q" "-"];
+          };
+        }
+        {
+          name = "svelte";
+
+          block-comment-tokens = {
+            start = "<!--";
+            end = "-->";
           };
         }
       ];
