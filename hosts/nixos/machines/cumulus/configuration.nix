@@ -48,8 +48,10 @@
   services.fwupd.enable = true;
 
   # Enable the Plasma 5 Desktop Environment.
-  services.xserver.displayManager.sddm.enable = true;
-  services.xserver.desktopManager.plasma5.enable = true;
+  services.displayManager.sddm = {
+    enable = true;
+  };
+  services.desktopManager.plasma6.enable = true;
 
   # Configure keymap in X11
   services.xserver.xkb.layout = "us";
@@ -72,6 +74,7 @@
   # services.xserver.libinput.enable = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
+
   users.users.scottm = {
     isNormalUser = true;
     extraGroups = ["wheel" "networkmanager" "audio" "jackaudio" "video" "libvirtd"];
@@ -117,7 +120,7 @@
   # Enable the OpenSSH daemon.
   services.openssh.enable = true;
 
-  # Open ports in the firewall.
+  # Open ports in the f firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
   networking.firewall.allowedUDPPorts = [51820];
   programs.steam = {
@@ -134,6 +137,7 @@
     system = {
       sound.enable = true;
       virtualization.enable = true;
+      wayland.enable = true;
     };
     nix.enable = true;
   };

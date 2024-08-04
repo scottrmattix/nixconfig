@@ -9,6 +9,16 @@
     username = "scottm";
     homeDirectory = "/home/scottm";
   };
+  home.packages = with pkgs; [
+    openscad-unstable
+    inkscape-with-extensions
+    krita
+    blender
+    freecad
+    zathura
+    discord
+    kicad
+  ];
   programs.home-manager.enable = true;
   systemd.user.startServices = "sd-switch";
   profiles = {

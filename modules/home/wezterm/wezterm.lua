@@ -33,5 +33,6 @@ config.keys = {
     action = wezterm.action.DisableDefaultAssignment,
   },
 }
+config.enable_wayland = false
 
 return config

@@ -21,7 +21,7 @@
         };
         modules = with inputs;
           [
-            home-manager.nixosModules.home-manager
+            # home-manager.nixosModules.home-manager
             (import configuration)
             {
               networking.hostName = hostname;

@@ -14,13 +14,11 @@
   environment.systemPackages = with pkgs; [
     file
     htop
-    neofetch
     pandoc
     home-manager
     fd
     nvfetcher
     keepassxc
-    zathura
     socat
     jq
     nix-index
@@ -30,6 +28,11 @@
     man-pages
     man-pages-posix
     just
+    tcpdump
+    python3
+    poppler_utils
+    zip
+    unzip
   ];
   profiles = {
     suites.core.enable = true;
