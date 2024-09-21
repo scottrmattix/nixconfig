@@ -7,7 +7,12 @@ if wezterm.config_builder then
 end
 
 config.color_scheme = "nord"
-config.font = wezterm.font("JetBrainsMono Nerd Font Propo", { weight = "Bold", stretch = "Normal", style = "Normal" })
+-- config.font = wezterm.font("JetBrainsMono Nerd Font Propo", { weight = "Bold", stretch = "Normal", style = "Normal" })
+config.font = wezterm.font_with_fallback {
+  {family = 'JetBrainsMono Nerd Font Propo', weight = "Bold", stretch = "Normal", style = " Normal"},
+  "Noto Sans Mono",
+  "Hack"
+}
 config.enable_tab_bar = false
 config.window_padding = {
   -- left = 0;

@@ -33,6 +33,7 @@
     poppler_utils
     zip
     unzip
+    usbutils
   ];
   profiles = {
     suites.core.enable = true;

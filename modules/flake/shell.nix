@@ -28,8 +28,6 @@
         '';
       };
 
-      # Slimmed-down GH Actions environment for nvfetcher to update packages in
-      # This just generates the actual nvfetcher.toml files.
       ci = pkgs.mkShell {
         name = "nix-shell-ci";
         shellHook = ''

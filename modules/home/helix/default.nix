@@ -21,6 +21,7 @@
       taplo
       alejandra
     ];
+    defaultEditor = true;
     languages = {
       language = with pkgs; [
         {
