@@ -14,18 +14,18 @@
     flake-parts = {
       url = "github:hercules-ci/flake-parts";
     };
-    nvfetcher = {
-      url = "github:berberman/nvfetcher";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    nixago = {
-      url = "github:nix-community/nixago";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-    treefmt = {
-      url = "github:numtide/treefmt-nix";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
+    # nvfetcher = {
+    #   url = "github:berberman/nvfetcher";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # nixago = {
+    #   url = "github:nix-community/nixago";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
+    # treefmt = {
+    #   url = "github:numtide/treefmt-nix";
+    #   inputs.nixpkgs.follows = "nixpkgs";
+    # };
     # neovim-nightly-overlay = {
     #   url = "github:nix-community/neovim-nightly-overlay";
     #   inputs.nixpkgs.follows = "nixpkgs";
@@ -41,20 +41,20 @@
     unstable,
     home-manager,
     flake-parts,
-    nvfetcher,
-    nixago,
-    treefmt,
+    # nvfetcher,
+    # nixago,
+    # treefmt,
     ...
   } @ inputs: let
     lib = import ./lib inputs;
   in
     flake-parts.lib.mkFlake {inherit inputs;} {
       imports = with inputs; [
-        treefmt.flakeModule
+        # treefmt.flakeModule
 
-        ./modules/flake/treefmt.nix
+        # ./modules/flake/treefmt.nix
         ./modules/flake/shell.nix
-        ./modules/flake/nvfetcher.nix
+        # ./modules/flake/nvfetcher.nix
         ./modules
 
         ./hosts/nixos
@@ -78,7 +78,7 @@
           pkgs = import nixpkgs {
             inherit system;
             overlays = [
-              nvfetcher.overlays.default
+              # nvfetcher.overlays.default
               self.overlays.default
               self.overlays.flakepkgs
               # inputs.neovim-nightly-overlay.overlay
