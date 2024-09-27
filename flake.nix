@@ -8,7 +8,7 @@
       url = "github:nixos/nixpkgs/nixos-unstable";
     };
     home-manager = {
-      url = "github:nix-community/home-manager";
+      url = "github:nix-community/home-manager/release-24.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     flake-parts = {
@@ -62,7 +62,7 @@
 
         ./overlays
 
-        ./pkgs
+        # ./pkgs
       ];
       systems = [
         "x86_64-linux"
@@ -80,7 +80,7 @@
             overlays = [
               # nvfetcher.overlays.default
               self.overlays.default
-              self.overlays.flakepkgs
+              # self.overlays.flakepkgs
               # inputs.neovim-nightly-overlay.overlay
             ];
             config.allowUnfree = true;
@@ -91,6 +91,6 @@
       flake = {
         inherit lib;
       };
-      debug = false;
+      debug = true;
     };
 }

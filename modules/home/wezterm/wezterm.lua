@@ -9,8 +9,9 @@ end
 config.color_scheme = "nord"
 -- config.font = wezterm.font("JetBrainsMono Nerd Font Propo", { weight = "Bold", stretch = "Normal", style = "Normal" })
 config.font = wezterm.font_with_fallback {
-  {family = 'JetBrainsMono Nerd Font Propo', weight = "Bold", stretch = "Normal", style = " Normal"},
+  {family = 'JetBrainsMono Nerd Font Propo', weight = "Bold"},
   "Noto Sans Mono",
+  "Fira Code",
   "Hack"
 }
 config.enable_tab_bar = false
