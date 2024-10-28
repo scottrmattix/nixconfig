@@ -18,7 +18,7 @@
   boot.loader = {
     efi.canTouchEfiVariables = true;
   };
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages;
 
   networking.hostName = "cumulus"; # Define your hostname.
   # Pick only one of the below networking options.
@@ -83,7 +83,6 @@
       tree
       xclip
       xsel
-      tor-browser-bundle-bin
     ];
     initialPassword = "";
     shell = pkgs.zsh;

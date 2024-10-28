@@ -53,7 +53,6 @@ in {
     extraGroups = ["networkmanager" "wheel" "audio" "jackaudio" "video" "docker" "libvirtd"];
     packages = with pkgs; [
       firefox
-      tor-browser-bundle-bin
     ];
     initialHashedPassword = "";
     shell = pkgs.zsh;

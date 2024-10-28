@@ -23,7 +23,7 @@
     jq
     nix-index
     lsof
-    logseq
+    # logseq
     steam-run
     man-pages
     man-pages-posix

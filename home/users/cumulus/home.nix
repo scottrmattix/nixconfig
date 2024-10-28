@@ -29,7 +29,9 @@
     starship.enable = true;
     zellij.enable = true;
     helix.enable = true;
+    gdb.enable = true;
   };
+  programs.bash.enable = true;
   programs.direnv = {
     enable = true;
     nix-direnv.enable = true;
