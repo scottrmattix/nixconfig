@@ -25,6 +25,9 @@ smart-case = false
 [editor.whitespace.render]
 newline = "all"
 
+# [editor.lsp]
+# display-inlay-hints = true
+
 [editor.whitespace.characters]
 # space = "·"
 # nbsp = "⍽"

@@ -1,5 +1,5 @@
 pane_frames false
-theme "nord"
+theme "nord-ext"
 session_serialization false
 ui {
   pane_frames{
@@ -26,12 +26,14 @@ keybinds {
   }
 }
 themes {
-  nord {
-    bg "#2E3440"
+  nord-ext {
+    fg "#D8DEE9"
+    bg "#3B404A"
+    // fg "#7F7F7F"
+    // bg "#4F4F4F"
     black "#3B4252"
     blue "#81A1C1"
     cyan "#88C0D0"
-    fg "#D8DEE9"
     green "#A3BE8C"
     magenta "#B48EAD"
     orange "#D08770"

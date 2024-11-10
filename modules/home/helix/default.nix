@@ -9,7 +9,7 @@
     package = pkgs.unstable.helix;
     extraPackages = with pkgs; [
       clang-tools
-      rust-analyzer
+      # rust-analyzer
       nil
       pyright
       gopls
