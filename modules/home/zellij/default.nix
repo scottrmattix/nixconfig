@@ -6,6 +6,7 @@
 }: {
   programs.zellij = {
     enable = true;
+    package = pkgs.unstable.zellij;
     enableZshIntegration = true;
   };
   home.packages = with pkgs; [

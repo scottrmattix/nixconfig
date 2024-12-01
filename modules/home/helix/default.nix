@@ -17,7 +17,7 @@
       lua-language-server
       nodePackages.bash-language-server
       nodePackages.typescript-language-server
-      nodePackages.svelte-language-server
+      # nodePackages.svelte-language-server
       taplo
       alejandra
     ];

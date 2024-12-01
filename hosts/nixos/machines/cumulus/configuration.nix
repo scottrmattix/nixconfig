@@ -100,7 +100,7 @@
     unstable.helix
     git
     glxinfo
-    nil
+    # nil
     ripgrep
     wgnord
   ];
@@ -121,9 +121,18 @@
 
   # Open ports in the f firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
-  networking.firewall.allowedUDPPorts = [51820];
+  # networking.firewall.allowedUDPPorts = [51820];
   programs.steam = {
     enable = true;
+  };
+
+  virtualisation.containers.enable = true;
+  virtualisation = {
+    podman = {
+      enable = true;
+      dockerCompat = true;
+      defaultNetwork.settings.dns_enabled = true;
+    };
   };
   profiles = {
     apps = {
