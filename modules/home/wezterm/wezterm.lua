@@ -40,5 +40,6 @@ config.keys = {
   },
 }
 config.enable_wayland = false
+config.front_end = "WebGpu"
 
 return config

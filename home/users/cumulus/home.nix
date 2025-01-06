@@ -26,6 +26,7 @@
     git.enable = true;
     zsh.enable = true;
     wezterm.enable = true;
+    alacritty.enable = true;
     starship.enable = true;
     zellij.enable = true;
     helix.enable = true;
