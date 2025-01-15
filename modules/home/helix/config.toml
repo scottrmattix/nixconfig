@@ -1,15 +1,18 @@
-theme = "nord"
+theme = "nightfox"
 
 [editor]
 line-number = "relative"
 idle-timeout = 50
 completion-timeout = 50
 auto-format = true
+middle-click-paste = false
+insert-final-newline = false
+end-of-line-diagnostics = "hint"
 
 [editor.statusline]
 left = ["mode", "spinner", "separator", "version-control"]
 center = ["file-name", "file-modification-indicator"]
-right = [ "position", "position-percentage", "file-type"]
+right = [ "position","total-line-numbers", "position-percentage", "file-type"]
 separator = "|"
 mode.normal = "NOR"
 mode.insert = "INS"
@@ -33,3 +36,7 @@ newline = "all"
 # nbsp = "⍽"
 # nnbsp = "␣"
 newline = "⏎"
+
+
+[editor.inline-diagnostics]
+cursor-line = "warning"
