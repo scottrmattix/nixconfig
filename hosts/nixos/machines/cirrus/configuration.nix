@@ -80,7 +80,7 @@ in {
       shortwave.enable = true;
     };
     desktops = {
-      hyprland.enable = true;
+      sway.enable = true;
     };
     suites = {
       common.enable = true;

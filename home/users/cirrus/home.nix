@@ -14,11 +14,11 @@
   profiles = {
     git.enable = true;
     zsh.enable = true;
-    nvim.enable = true;
     wezterm.enable = true;
+    alacritty.enable = true;
     starship.enable = true;
     zellij.enable = true;
-    hyprland.enable = true;
+    sway.enable = true;
     thunderbird.enable = true;
     helix.enable = true;
   };
