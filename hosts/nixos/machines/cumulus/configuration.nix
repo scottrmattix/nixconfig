@@ -77,7 +77,7 @@
 
   users.users.scottm = {
     isNormalUser = true;
-    extraGroups = ["wheel" "networkmanager" "audio" "jackaudio" "video" "libvirtd" "dialout"];
+    extraGroups = ["wheel" "networkmanager" "audio" "jackaudio" "video" "libvirtd" "dialout" "kvm"];
     packages = with pkgs; [
       firefox
       tree
