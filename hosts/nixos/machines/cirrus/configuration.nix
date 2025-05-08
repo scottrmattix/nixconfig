@@ -80,7 +80,7 @@ in {
       shortwave.enable = true;
     };
     desktops = {
-      sway.enable = true;
+      kde.enable = true;
     };
     suites = {
       common.enable = true;

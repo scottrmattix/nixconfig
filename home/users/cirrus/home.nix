@@ -9,6 +9,13 @@
     username = "scottm";
     homeDirectory = "/home/scottm";
   };
+  home.packages = with pkgs; [
+    krita
+    freecad
+    zathura
+    kicad
+    audacity
+  ];
   programs.home-manager.enable = true;
   systemd.user.startServices = "sd-switch";
   profiles = {
