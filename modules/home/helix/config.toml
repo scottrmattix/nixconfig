@@ -11,8 +11,8 @@ end-of-line-diagnostics = "hint"
 
 [editor.statusline]
 left = ["mode", "spinner", "separator", "version-control"]
-center = ["file-name", "file-modification-indicator"]
-right = [ "position","total-line-numbers", "position-percentage", "file-type"]
+center = ["file-name", "file-modification-indicator", "read-only-indicator"]
+right = [ "position","primary-selection-length","total-line-numbers", "position-percentage", "file-type"]
 separator = "|"
 mode.normal = "NOR"
 mode.insert = "INS"

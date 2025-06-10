@@ -17,7 +17,6 @@
     freecad
     zathura
     discord
-    kicad
     audacity
   ];
   programs.home-manager.enable = true;
