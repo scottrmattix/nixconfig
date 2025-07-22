@@ -16,8 +16,9 @@
       fira-code
       fira-code-symbols
       jetbrains-mono
-      (nerdfonts.override {fonts = ["JetBrainsMono"];})
+      nerd-fonts.jetbrains-mono
     ];
+
     fontDir.enable = true;
     enableDefaultPackages = true;
   };
